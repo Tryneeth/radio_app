@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:radio_app/src/core/di/di_initializer.dart';
@@ -22,7 +23,7 @@ class RadioBrowserPage extends StatelessWidget {
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
               actions: [
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () => _showCountryPicker(context),
                   icon: const Icon(Icons.flag),
                 ),
               ],
@@ -34,6 +35,13 @@ class RadioBrowserPage extends StatelessWidget {
       ),
     );
   }
+
+  void _showCountryPicker(BuildContext context) => showCountryPicker(
+        context: context,
+        onSelect: (Country country) => context
+            .read<RadioBrowserBloc>()
+            .add(RadioBrowserEvent.changeCountry(country.countryCode)),
+      );
 }
 
 class _Content extends StatelessWidget {

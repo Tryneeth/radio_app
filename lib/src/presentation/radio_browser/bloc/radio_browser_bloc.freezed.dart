@@ -21,6 +21,7 @@ mixin _$RadioBrowserEvent {
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
+    required TResult Function(String countryCode) changeCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -28,6 +29,7 @@ mixin _$RadioBrowserEvent {
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
+    TResult? Function(String countryCode)? changeCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -35,6 +37,7 @@ mixin _$RadioBrowserEvent {
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
+    TResult Function(String countryCode)? changeCountry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -43,6 +46,8 @@ mixin _$RadioBrowserEvent {
     required TResult Function(_LoadRadioBrowserEvent value) load,
     required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
+    required TResult Function(_ChangeCountryRadioBrowserEvent value)
+        changeCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -50,6 +55,7 @@ mixin _$RadioBrowserEvent {
     TResult? Function(_LoadRadioBrowserEvent value)? load,
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -57,6 +63,7 @@ mixin _$RadioBrowserEvent {
     TResult Function(_LoadRadioBrowserEvent value)? load,
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -131,6 +138,7 @@ class _$LoadRadioBrowserEventImpl
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
+    required TResult Function(String countryCode) changeCountry,
   }) {
     return load();
   }
@@ -141,6 +149,7 @@ class _$LoadRadioBrowserEventImpl
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
+    TResult? Function(String countryCode)? changeCountry,
   }) {
     return load?.call();
   }
@@ -151,6 +160,7 @@ class _$LoadRadioBrowserEventImpl
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
+    TResult Function(String countryCode)? changeCountry,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -165,6 +175,8 @@ class _$LoadRadioBrowserEventImpl
     required TResult Function(_LoadRadioBrowserEvent value) load,
     required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
+    required TResult Function(_ChangeCountryRadioBrowserEvent value)
+        changeCountry,
   }) {
     return load(this);
   }
@@ -175,6 +187,7 @@ class _$LoadRadioBrowserEventImpl
     TResult? Function(_LoadRadioBrowserEvent value)? load,
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
   }) {
     return load?.call(this);
   }
@@ -185,6 +198,7 @@ class _$LoadRadioBrowserEventImpl
     TResult Function(_LoadRadioBrowserEvent value)? load,
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -251,6 +265,7 @@ class _$LoadMoreRadioBrowserEventImpl
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
+    required TResult Function(String countryCode) changeCountry,
   }) {
     return loadMore();
   }
@@ -261,6 +276,7 @@ class _$LoadMoreRadioBrowserEventImpl
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
+    TResult? Function(String countryCode)? changeCountry,
   }) {
     return loadMore?.call();
   }
@@ -271,6 +287,7 @@ class _$LoadMoreRadioBrowserEventImpl
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
+    TResult Function(String countryCode)? changeCountry,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -285,6 +302,8 @@ class _$LoadMoreRadioBrowserEventImpl
     required TResult Function(_LoadRadioBrowserEvent value) load,
     required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
+    required TResult Function(_ChangeCountryRadioBrowserEvent value)
+        changeCountry,
   }) {
     return loadMore(this);
   }
@@ -295,6 +314,7 @@ class _$LoadMoreRadioBrowserEventImpl
     TResult? Function(_LoadRadioBrowserEvent value)? load,
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
   }) {
     return loadMore?.call(this);
   }
@@ -305,6 +325,7 @@ class _$LoadMoreRadioBrowserEventImpl
     TResult Function(_LoadRadioBrowserEvent value)? load,
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -410,6 +431,7 @@ class _$OpenStationRadioBrowserEventImpl
     required TResult Function() load,
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
+    required TResult Function(String countryCode) changeCountry,
   }) {
     return openStation(station);
   }
@@ -420,6 +442,7 @@ class _$OpenStationRadioBrowserEventImpl
     TResult? Function()? load,
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
+    TResult? Function(String countryCode)? changeCountry,
   }) {
     return openStation?.call(station);
   }
@@ -430,6 +453,7 @@ class _$OpenStationRadioBrowserEventImpl
     TResult Function()? load,
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
+    TResult Function(String countryCode)? changeCountry,
     required TResult orElse(),
   }) {
     if (openStation != null) {
@@ -444,6 +468,8 @@ class _$OpenStationRadioBrowserEventImpl
     required TResult Function(_LoadRadioBrowserEvent value) load,
     required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
+    required TResult Function(_ChangeCountryRadioBrowserEvent value)
+        changeCountry,
   }) {
     return openStation(this);
   }
@@ -454,6 +480,7 @@ class _$OpenStationRadioBrowserEventImpl
     TResult? Function(_LoadRadioBrowserEvent value)? load,
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
   }) {
     return openStation?.call(this);
   }
@@ -464,6 +491,7 @@ class _$OpenStationRadioBrowserEventImpl
     TResult Function(_LoadRadioBrowserEvent value)? load,
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
     required TResult orElse(),
   }) {
     if (openStation != null) {
@@ -481,6 +509,170 @@ abstract class _OpenStationRadioBrowserEvent implements RadioBrowserEvent {
   @JsonKey(ignore: true)
   _$$OpenStationRadioBrowserEventImplCopyWith<
           _$OpenStationRadioBrowserEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$ChangeCountryRadioBrowserEventImplCopyWith<$Res> {
+  factory _$$ChangeCountryRadioBrowserEventImplCopyWith(
+          _$ChangeCountryRadioBrowserEventImpl value,
+          $Res Function(_$ChangeCountryRadioBrowserEventImpl) then) =
+      __$$ChangeCountryRadioBrowserEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({String countryCode});
+}
+
+/// @nodoc
+class __$$ChangeCountryRadioBrowserEventImplCopyWithImpl<$Res>
+    extends _$RadioBrowserEventCopyWithImpl<$Res,
+        _$ChangeCountryRadioBrowserEventImpl>
+    implements _$$ChangeCountryRadioBrowserEventImplCopyWith<$Res> {
+  __$$ChangeCountryRadioBrowserEventImplCopyWithImpl(
+      _$ChangeCountryRadioBrowserEventImpl _value,
+      $Res Function(_$ChangeCountryRadioBrowserEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? countryCode = null,
+  }) {
+    return _then(_$ChangeCountryRadioBrowserEventImpl(
+      null == countryCode
+          ? _value.countryCode
+          : countryCode // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$ChangeCountryRadioBrowserEventImpl
+    with DiagnosticableTreeMixin
+    implements _ChangeCountryRadioBrowserEvent {
+  const _$ChangeCountryRadioBrowserEventImpl(this.countryCode);
+
+  @override
+  final String countryCode;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RadioBrowserEvent.changeCountry(countryCode: $countryCode)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RadioBrowserEvent.changeCountry'))
+      ..add(DiagnosticsProperty('countryCode', countryCode));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ChangeCountryRadioBrowserEventImpl &&
+            (identical(other.countryCode, countryCode) ||
+                other.countryCode == countryCode));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, countryCode);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$ChangeCountryRadioBrowserEventImplCopyWith<
+          _$ChangeCountryRadioBrowserEventImpl>
+      get copyWith => __$$ChangeCountryRadioBrowserEventImplCopyWithImpl<
+          _$ChangeCountryRadioBrowserEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() loadMore,
+    required TResult Function(RadioStation station) openStation,
+    required TResult Function(String countryCode) changeCountry,
+  }) {
+    return changeCountry(countryCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? loadMore,
+    TResult? Function(RadioStation station)? openStation,
+    TResult? Function(String countryCode)? changeCountry,
+  }) {
+    return changeCountry?.call(countryCode);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? loadMore,
+    TResult Function(RadioStation station)? openStation,
+    TResult Function(String countryCode)? changeCountry,
+    required TResult orElse(),
+  }) {
+    if (changeCountry != null) {
+      return changeCountry(countryCode);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRadioBrowserEvent value) load,
+    required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
+    required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
+    required TResult Function(_ChangeCountryRadioBrowserEvent value)
+        changeCountry,
+  }) {
+    return changeCountry(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRadioBrowserEvent value)? load,
+    TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+  }) {
+    return changeCountry?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRadioBrowserEvent value)? load,
+    TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    required TResult orElse(),
+  }) {
+    if (changeCountry != null) {
+      return changeCountry(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ChangeCountryRadioBrowserEvent implements RadioBrowserEvent {
+  const factory _ChangeCountryRadioBrowserEvent(final String countryCode) =
+      _$ChangeCountryRadioBrowserEventImpl;
+
+  String get countryCode;
+  @JsonKey(ignore: true)
+  _$$ChangeCountryRadioBrowserEventImplCopyWith<
+          _$ChangeCountryRadioBrowserEventImpl>
       get copyWith => throw _privateConstructorUsedError;
 }
 

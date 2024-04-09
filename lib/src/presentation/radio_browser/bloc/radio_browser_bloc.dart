@@ -1,5 +1,3 @@
-import 'dart:ui';
-
 import 'package:bloc/bloc.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/foundation.dart';
@@ -24,6 +22,7 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
         load: (_) => _onLoad(emit),
         loadMore: (_) => _onLoadMore(emit),
         openStation: (e) => _onOpenStation(emit, e),
+        changeCountry: (e) => _onChangeCountry(emit, e),
       ),
     );
 
@@ -97,4 +96,30 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
     _OpenStationRadioBrowserEvent e,
   ) =>
       _navigator.openRadioStation(e.station);
+
+  Future<void> _onChangeCountry(
+    Emitter<RadioBrowserState> emit,
+    _ChangeCountryRadioBrowserEvent e,
+  ) async {
+    final (offset, limit) = (0, 20);
+
+    final response = await _getRadioStationsByCountryCode(
+      e.countryCode,
+      offset: offset,
+      limit: limit,
+    );
+
+    response.fold(
+      (left) => emit(RadioBrowserState.error(error: left)),
+      (right) => emit(
+        RadioBrowserState.content(
+          stations: right,
+          offset: offset,
+          limit: limit,
+          countryCode: e.countryCode,
+          countryName: Country.parse(e.countryCode).name,
+        ),
+      ),
+    );
+  }
 }
