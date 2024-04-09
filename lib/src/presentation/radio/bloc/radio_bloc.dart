@@ -2,6 +2,7 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
+import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:radio_app/src/domain/models/radio_station.dart';
@@ -35,9 +36,14 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
   final RadioPlayer _radioPlayer;
   final RadioStation _station;
 
+  @override
+  Future<void> close() {
+    _radioPlayer.stop();
+    return super.close();
+  }
+
   Future<void> _onLoad(Emitter<RadioState> emit) async {
     emit(state.copyWith(stationUrl: _station.url));
-
     await _setChannel(_station.url);
 
     final combinedStreams = CombineLatestStream.combine2(
