@@ -20,18 +20,21 @@ mixin _$RadioBrowserEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function() loadMore,
+    required TResult Function(RadioStation station) openStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function()? loadMore,
+    TResult? Function(RadioStation station)? openStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function()? loadMore,
+    TResult Function(RadioStation station)? openStation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -39,18 +42,21 @@ mixin _$RadioBrowserEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadRadioBrowserEvent value) load,
     required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
+    required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadRadioBrowserEvent value)? load,
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadRadioBrowserEvent value)? load,
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -124,6 +130,7 @@ class _$LoadRadioBrowserEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function() loadMore,
+    required TResult Function(RadioStation station) openStation,
   }) {
     return load();
   }
@@ -133,6 +140,7 @@ class _$LoadRadioBrowserEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function()? loadMore,
+    TResult? Function(RadioStation station)? openStation,
   }) {
     return load?.call();
   }
@@ -142,6 +150,7 @@ class _$LoadRadioBrowserEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function()? loadMore,
+    TResult Function(RadioStation station)? openStation,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -155,6 +164,7 @@ class _$LoadRadioBrowserEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadRadioBrowserEvent value) load,
     required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
+    required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
   }) {
     return load(this);
   }
@@ -164,6 +174,7 @@ class _$LoadRadioBrowserEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadRadioBrowserEvent value)? load,
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
   }) {
     return load?.call(this);
   }
@@ -173,6 +184,7 @@ class _$LoadRadioBrowserEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadRadioBrowserEvent value)? load,
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -238,6 +250,7 @@ class _$LoadMoreRadioBrowserEventImpl
   TResult when<TResult extends Object?>({
     required TResult Function() load,
     required TResult Function() loadMore,
+    required TResult Function(RadioStation station) openStation,
   }) {
     return loadMore();
   }
@@ -247,6 +260,7 @@ class _$LoadMoreRadioBrowserEventImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
     TResult? Function()? loadMore,
+    TResult? Function(RadioStation station)? openStation,
   }) {
     return loadMore?.call();
   }
@@ -256,6 +270,7 @@ class _$LoadMoreRadioBrowserEventImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
     TResult Function()? loadMore,
+    TResult Function(RadioStation station)? openStation,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -269,6 +284,7 @@ class _$LoadMoreRadioBrowserEventImpl
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadRadioBrowserEvent value) load,
     required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
+    required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
   }) {
     return loadMore(this);
   }
@@ -278,6 +294,7 @@ class _$LoadMoreRadioBrowserEventImpl
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadRadioBrowserEvent value)? load,
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
   }) {
     return loadMore?.call(this);
   }
@@ -287,6 +304,7 @@ class _$LoadMoreRadioBrowserEventImpl
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadRadioBrowserEvent value)? load,
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -301,13 +319,185 @@ abstract class _LoadMoreRadioBrowserEvent implements RadioBrowserEvent {
 }
 
 /// @nodoc
+abstract class _$$OpenStationRadioBrowserEventImplCopyWith<$Res> {
+  factory _$$OpenStationRadioBrowserEventImplCopyWith(
+          _$OpenStationRadioBrowserEventImpl value,
+          $Res Function(_$OpenStationRadioBrowserEventImpl) then) =
+      __$$OpenStationRadioBrowserEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({RadioStation station});
+
+  $RadioStationCopyWith<$Res> get station;
+}
+
+/// @nodoc
+class __$$OpenStationRadioBrowserEventImplCopyWithImpl<$Res>
+    extends _$RadioBrowserEventCopyWithImpl<$Res,
+        _$OpenStationRadioBrowserEventImpl>
+    implements _$$OpenStationRadioBrowserEventImplCopyWith<$Res> {
+  __$$OpenStationRadioBrowserEventImplCopyWithImpl(
+      _$OpenStationRadioBrowserEventImpl _value,
+      $Res Function(_$OpenStationRadioBrowserEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? station = null,
+  }) {
+    return _then(_$OpenStationRadioBrowserEventImpl(
+      null == station
+          ? _value.station
+          : station // ignore: cast_nullable_to_non_nullable
+              as RadioStation,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RadioStationCopyWith<$Res> get station {
+    return $RadioStationCopyWith<$Res>(_value.station, (value) {
+      return _then(_value.copyWith(station: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$OpenStationRadioBrowserEventImpl
+    with DiagnosticableTreeMixin
+    implements _OpenStationRadioBrowserEvent {
+  const _$OpenStationRadioBrowserEventImpl(this.station);
+
+  @override
+  final RadioStation station;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RadioBrowserEvent.openStation(station: $station)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RadioBrowserEvent.openStation'))
+      ..add(DiagnosticsProperty('station', station));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OpenStationRadioBrowserEventImpl &&
+            (identical(other.station, station) || other.station == station));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, station);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OpenStationRadioBrowserEventImplCopyWith<
+          _$OpenStationRadioBrowserEventImpl>
+      get copyWith => __$$OpenStationRadioBrowserEventImplCopyWithImpl<
+          _$OpenStationRadioBrowserEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() loadMore,
+    required TResult Function(RadioStation station) openStation,
+  }) {
+    return openStation(station);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? loadMore,
+    TResult? Function(RadioStation station)? openStation,
+  }) {
+    return openStation?.call(station);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? loadMore,
+    TResult Function(RadioStation station)? openStation,
+    required TResult orElse(),
+  }) {
+    if (openStation != null) {
+      return openStation(station);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRadioBrowserEvent value) load,
+    required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
+    required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
+  }) {
+    return openStation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRadioBrowserEvent value)? load,
+    TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
+  }) {
+    return openStation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRadioBrowserEvent value)? load,
+    TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
+    required TResult orElse(),
+  }) {
+    if (openStation != null) {
+      return openStation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenStationRadioBrowserEvent implements RadioBrowserEvent {
+  const factory _OpenStationRadioBrowserEvent(final RadioStation station) =
+      _$OpenStationRadioBrowserEventImpl;
+
+  RadioStation get station;
+  @JsonKey(ignore: true)
+  _$$OpenStationRadioBrowserEventImplCopyWith<
+          _$OpenStationRadioBrowserEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 mixin _$RadioBrowserState {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)
+    required TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)
         content,
     required TResult Function(Exception? error) error,
   }) =>
@@ -316,8 +506,14 @@ mixin _$RadioBrowserState {
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult? Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult? Function(Exception? error)? error,
   }) =>
@@ -326,8 +522,14 @@ mixin _$RadioBrowserState {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult Function(Exception? error)? error,
     required TResult orElse(),
@@ -430,8 +632,14 @@ class _$InitialRadioBrowserStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)
+    required TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)
         content,
     required TResult Function(Exception? error) error,
   }) {
@@ -443,8 +651,14 @@ class _$InitialRadioBrowserStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult? Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult? Function(Exception? error)? error,
   }) {
@@ -456,8 +670,14 @@ class _$InitialRadioBrowserStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult Function(Exception? error)? error,
     required TResult orElse(),
@@ -562,8 +782,14 @@ class _$LoadingRadioBrowserStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)
+    required TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)
         content,
     required TResult Function(Exception? error) error,
   }) {
@@ -575,8 +801,14 @@ class _$LoadingRadioBrowserStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult? Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult? Function(Exception? error)? error,
   }) {
@@ -588,8 +820,14 @@ class _$LoadingRadioBrowserStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult Function(Exception? error)? error,
     required TResult orElse(),
@@ -654,7 +892,9 @@ abstract class _$$ContentRadioBrowserStateImplCopyWith<$Res> {
       List<RadioStation> stations,
       int offset,
       int limit,
-      String? countryCode});
+      bool isEndOfData,
+      String? countryCode,
+      String? countryName});
 }
 
 /// @nodoc
@@ -674,7 +914,9 @@ class __$$ContentRadioBrowserStateImplCopyWithImpl<$Res>
     Object? stations = null,
     Object? offset = null,
     Object? limit = null,
+    Object? isEndOfData = null,
     Object? countryCode = freezed,
+    Object? countryName = freezed,
   }) {
     return _then(_$ContentRadioBrowserStateImpl(
       isLoadingMore: null == isLoadingMore
@@ -693,9 +935,17 @@ class __$$ContentRadioBrowserStateImplCopyWithImpl<$Res>
           ? _value.limit
           : limit // ignore: cast_nullable_to_non_nullable
               as int,
+      isEndOfData: null == isEndOfData
+          ? _value.isEndOfData
+          : isEndOfData // ignore: cast_nullable_to_non_nullable
+              as bool,
       countryCode: freezed == countryCode
           ? _value.countryCode
           : countryCode // ignore: cast_nullable_to_non_nullable
+              as String?,
+      countryName: freezed == countryName
+          ? _value.countryName
+          : countryName // ignore: cast_nullable_to_non_nullable
               as String?,
     ));
   }
@@ -711,7 +961,9 @@ class _$ContentRadioBrowserStateImpl
       final List<RadioStation> stations = const [],
       this.offset = 0,
       this.limit = 20,
-      this.countryCode})
+      this.isEndOfData = false,
+      this.countryCode,
+      this.countryName})
       : _stations = stations;
 
   @override
@@ -733,11 +985,16 @@ class _$ContentRadioBrowserStateImpl
   @JsonKey()
   final int limit;
   @override
+  @JsonKey()
+  final bool isEndOfData;
+  @override
   final String? countryCode;
+  @override
+  final String? countryName;
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RadioBrowserState.content(isLoadingMore: $isLoadingMore, stations: $stations, offset: $offset, limit: $limit, countryCode: $countryCode)';
+    return 'RadioBrowserState.content(isLoadingMore: $isLoadingMore, stations: $stations, offset: $offset, limit: $limit, isEndOfData: $isEndOfData, countryCode: $countryCode, countryName: $countryName)';
   }
 
   @override
@@ -749,7 +1006,9 @@ class _$ContentRadioBrowserStateImpl
       ..add(DiagnosticsProperty('stations', stations))
       ..add(DiagnosticsProperty('offset', offset))
       ..add(DiagnosticsProperty('limit', limit))
-      ..add(DiagnosticsProperty('countryCode', countryCode));
+      ..add(DiagnosticsProperty('isEndOfData', isEndOfData))
+      ..add(DiagnosticsProperty('countryCode', countryCode))
+      ..add(DiagnosticsProperty('countryName', countryName));
   }
 
   @override
@@ -762,8 +1021,12 @@ class _$ContentRadioBrowserStateImpl
             const DeepCollectionEquality().equals(other._stations, _stations) &&
             (identical(other.offset, offset) || other.offset == offset) &&
             (identical(other.limit, limit) || other.limit == limit) &&
+            (identical(other.isEndOfData, isEndOfData) ||
+                other.isEndOfData == isEndOfData) &&
             (identical(other.countryCode, countryCode) ||
-                other.countryCode == countryCode));
+                other.countryCode == countryCode) &&
+            (identical(other.countryName, countryName) ||
+                other.countryName == countryName));
   }
 
   @override
@@ -773,7 +1036,9 @@ class _$ContentRadioBrowserStateImpl
       const DeepCollectionEquality().hash(_stations),
       offset,
       limit,
-      countryCode);
+      isEndOfData,
+      countryCode,
+      countryName);
 
   @JsonKey(ignore: true)
   @override
@@ -787,12 +1052,19 @@ class _$ContentRadioBrowserStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)
+    required TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)
         content,
     required TResult Function(Exception? error) error,
   }) {
-    return content(isLoadingMore, stations, offset, limit, countryCode);
+    return content(isLoadingMore, stations, offset, limit, isEndOfData,
+        countryCode, countryName);
   }
 
   @override
@@ -800,12 +1072,19 @@ class _$ContentRadioBrowserStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult? Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult? Function(Exception? error)? error,
   }) {
-    return content?.call(isLoadingMore, stations, offset, limit, countryCode);
+    return content?.call(isLoadingMore, stations, offset, limit, isEndOfData,
+        countryCode, countryName);
   }
 
   @override
@@ -813,14 +1092,21 @@ class _$ContentRadioBrowserStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult Function(Exception? error)? error,
     required TResult orElse(),
   }) {
     if (content != null) {
-      return content(isLoadingMore, stations, offset, limit, countryCode);
+      return content(isLoadingMore, stations, offset, limit, isEndOfData,
+          countryCode, countryName);
     }
     return orElse();
   }
@@ -869,13 +1155,17 @@ abstract class _ContentRadioBrowserState implements RadioBrowserState {
       final List<RadioStation> stations,
       final int offset,
       final int limit,
-      final String? countryCode}) = _$ContentRadioBrowserStateImpl;
+      final bool isEndOfData,
+      final String? countryCode,
+      final String? countryName}) = _$ContentRadioBrowserStateImpl;
 
   bool get isLoadingMore;
   List<RadioStation> get stations;
   int get offset;
   int get limit;
+  bool get isEndOfData;
   String? get countryCode;
+  String? get countryName;
   @JsonKey(ignore: true)
   _$$ContentRadioBrowserStateImplCopyWith<_$ContentRadioBrowserStateImpl>
       get copyWith => throw _privateConstructorUsedError;
@@ -960,8 +1250,14 @@ class _$ErrorRadioBrowserStateImpl
   TResult when<TResult extends Object?>({
     required TResult Function() initial,
     required TResult Function() loading,
-    required TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)
+    required TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)
         content,
     required TResult Function(Exception? error) error,
   }) {
@@ -973,8 +1269,14 @@ class _$ErrorRadioBrowserStateImpl
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? initial,
     TResult? Function()? loading,
-    TResult? Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult? Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult? Function(Exception? error)? error,
   }) {
@@ -986,8 +1288,14 @@ class _$ErrorRadioBrowserStateImpl
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initial,
     TResult Function()? loading,
-    TResult Function(bool isLoadingMore, List<RadioStation> stations,
-            int offset, int limit, String? countryCode)?
+    TResult Function(
+            bool isLoadingMore,
+            List<RadioStation> stations,
+            int offset,
+            int limit,
+            bool isEndOfData,
+            String? countryCode,
+            String? countryName)?
         content,
     TResult Function(Exception? error)? error,
     required TResult orElse(),

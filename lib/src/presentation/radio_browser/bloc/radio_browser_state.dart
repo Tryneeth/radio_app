@@ -11,7 +11,9 @@ class RadioBrowserState with _$RadioBrowserState {
     @Default([]) List<RadioStation> stations,
     @Default(0) int offset,
     @Default(20) int limit,
+    @Default(false) bool isEndOfData,
     String? countryCode,
+    String? countryName,
   }) = _ContentRadioBrowserState;
 
   const factory RadioBrowserState.error({

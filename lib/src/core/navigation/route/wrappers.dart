@@ -4,7 +4,7 @@ part of 'routes.dart';
 class RadioScreen extends RadioPage {
   const RadioScreen({
     super.key,
-    required super.url,
+    required super.station,
   });
 }
 

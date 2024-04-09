@@ -4,6 +4,7 @@ import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:radio_app/src/domain/models/radio_station.dart';
 import 'package:radio_player/radio_player.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -15,8 +16,8 @@ part 'radio_bloc.freezed.dart';
 class RadioBloc extends Bloc<RadioEvent, RadioState> {
   RadioBloc(
     this._radioPlayer,
-    @factoryParam String url,
-  )   : _url = url,
+    @factoryParam RadioStation station,
+  )   : _station = station,
         super(const RadioState()) {
     on<RadioEvent>(
       (event, emit) => event.map(
@@ -32,12 +33,12 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
   }
 
   final RadioPlayer _radioPlayer;
-  final String _url;
+  final RadioStation _station;
 
   Future<void> _onLoad(Emitter<RadioState> emit) async {
-    emit(state.copyWith(stationUrl: _url));
+    emit(state.copyWith(stationUrl: _station.url));
 
-    await _setChannel(_url);
+    await _setChannel(_station.url);
 
     final combinedStreams = CombineLatestStream.combine2(
       _radioPlayer.metadataStream,
@@ -63,14 +64,20 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
   ) async =>
       _setChannel(event.url);
 
-  Future<void> _onPlay(Emitter<RadioState> emit) async =>
-      await _radioPlayer.play();
+  Future<void> _onPlay(Emitter<RadioState> emit) async {
+    await _radioPlayer.play();
+    emit(state.copyWith(isPlaying: true));
+  }
 
-  Future<void> _onPause(Emitter<RadioState> emit) async =>
-      await _radioPlayer.pause();
+  Future<void> _onPause(Emitter<RadioState> emit) async {
+    await _radioPlayer.pause();
+    emit(state.copyWith(isPlaying: false));
+  }
 
-  Future<void> _onStop(Emitter<RadioState> emit) async =>
-      await _radioPlayer.stop();
+  Future<void> _onStop(Emitter<RadioState> emit) async {
+    await _radioPlayer.stop();
+    emit(state.copyWith(isPlaying: false));
+  }
 
   Future<void> _setChannel(String url) async {
     await _radioPlayer.setChannel(

@@ -11,20 +11,26 @@ class RadioBrowserPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        elevation: 0.0,
-        backgroundColor: Theme.of(context).scaffoldBackgroundColor,
-        actions: [
-          IconButton(
-            onPressed: () {},
-            icon: const Icon(Icons.flag),
+    return BlocProvider(
+      create: (_) => getIt<RadioBrowserBloc>(),
+      child: BlocBuilder<RadioBrowserBloc, RadioBrowserState>(
+        builder: (context, state) => state.maybeMap(
+          content: (st) => Scaffold(
+            appBar: AppBar(
+              elevation: 0.0,
+              title: Text(st.countryName ?? ''),
+              backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              actions: [
+                IconButton(
+                  onPressed: () {},
+                  icon: const Icon(Icons.flag),
+                ),
+              ],
+            ),
+            body: const _Content(),
           ),
-        ],
-      ),
-      body: BlocProvider(
-        create: (_) => getIt<RadioBrowserBloc>(),
-        child: const _Content(),
+          orElse: () => const SizedBox.shrink(),
+        ),
       ),
     );
   }
@@ -37,7 +43,10 @@ class _Content extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<RadioBrowserBloc, RadioBrowserState>(
       builder: (context, state) => state.maybeMap(
-        content: (value) => _RadioStationsList(stations: value.stations),
+        content: (value) => _RadioStationsList(
+          stations: value.stations,
+          bloc: context.read<RadioBrowserBloc>(),
+        ),
         error: (value) => ErrorView(
           error: value.error!,
           onRetry: () => context
@@ -50,18 +59,61 @@ class _Content extends StatelessWidget {
   }
 }
 
-class _RadioStationsList extends StatelessWidget {
-  const _RadioStationsList({required this.stations});
+class _RadioStationsList extends StatefulWidget {
+  const _RadioStationsList({required this.stations, required this.bloc});
 
   final List<RadioStation> stations;
+  final RadioBrowserBloc bloc;
+
+  @override
+  State<_RadioStationsList> createState() => _RadioStationsListState();
+}
+
+class _RadioStationsListState extends State<_RadioStationsList> {
+  final _scrollController = ScrollController();
+  final _scrollThreshold = 200.0;
+
+  @override
+  void initState() {
+    _scrollController.addListener(_onScroll);
+    super.initState();
+  }
+
+  @override
+  void dispose() {
+    _scrollController.dispose();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
     return ListView.builder(
-      itemCount: stations.length,
-      itemBuilder: (context, index) => ListTile(
-        title: Text(stations[index].name),
-      ),
+      controller: _scrollController,
+      itemCount: widget.stations.length,
+      itemBuilder: (context, index) {
+        final st = widget.stations[index];
+        return ListTile(
+          leading: st.favicon != ''
+              ? CircleAvatar(
+                  backgroundImage: Image.network(st.favicon!).image,
+                )
+              : const CircleAvatar(
+                  child: Icon(Icons.radio),
+                ),
+          title: Text(st.name),
+          onTap: () => context.read<RadioBrowserBloc>().add(
+                RadioBrowserEvent.openStation(st),
+              ),
+        );
+      },
     );
+  }
+
+  void _onScroll() {
+    final maxScroll = _scrollController.position.maxScrollExtent;
+    final currentScroll = _scrollController.position.pixels;
+    if (maxScroll - currentScroll <= _scrollThreshold) {
+      widget.bloc.add(const RadioBrowserEvent.loadMore());
+    }
   }
 }

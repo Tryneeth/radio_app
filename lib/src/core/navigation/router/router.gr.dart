@@ -27,7 +27,7 @@ abstract class _$ClientRouter extends RootStackRouter {
         routeData: routeData,
         child: RadioScreen(
           key: args.key,
-          url: args.url,
+          station: args.station,
         ),
       );
     },
@@ -53,13 +53,13 @@ class RadioBrowserRoute extends PageRouteInfo<void> {
 class RadioRoute extends PageRouteInfo<RadioRouteArgs> {
   RadioRoute({
     Key? key,
-    required String url,
+    required RadioStation station,
     List<PageRouteInfo>? children,
   }) : super(
           RadioRoute.name,
           args: RadioRouteArgs(
             key: key,
-            url: url,
+            station: station,
           ),
           initialChildren: children,
         );
@@ -72,15 +72,15 @@ class RadioRoute extends PageRouteInfo<RadioRouteArgs> {
 class RadioRouteArgs {
   const RadioRouteArgs({
     this.key,
-    required this.url,
+    required this.station,
   });
 
   final Key? key;
 
-  final String url;
+  final RadioStation station;
 
   @override
   String toString() {
-    return 'RadioRouteArgs{key: $key, url: $url}';
+    return 'RadioRouteArgs{key: $key, station: $station}';
   }
 }

@@ -1,9 +1,13 @@
+import 'dart:ui';
+
 import 'package:bloc/bloc.dart';
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:radio_app/src/domain/models/radio_station.dart';
 import 'package:radio_app/src/domain/usecases/get_radio_stations_by_country_code.dart';
+import 'package:radio_app/src/presentation/navigators/radio_browser_navigator.dart';
 
 part 'radio_browser_event.dart';
 part 'radio_browser_state.dart';
@@ -13,11 +17,13 @@ part 'radio_browser_bloc.freezed.dart';
 class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
   RadioBrowserBloc(
     this._getRadioStationsByCountryCode,
+    this._navigator,
   ) : super(const RadioBrowserState.initial()) {
     on<RadioBrowserEvent>(
       (event, emit) => event.map(
         load: (_) => _onLoad(emit),
-        loadMore: (_) => _onLoadMore(),
+        loadMore: (_) => _onLoadMore(emit),
+        openStation: (e) => _onOpenStation(emit, e),
       ),
     );
 
@@ -25,6 +31,7 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
   }
 
   final GetRadioStationsByCountryCode _getRadioStationsByCountryCode;
+  final RadioBrowserNavigator _navigator;
 
   Future<void> _onLoad(Emitter<RadioBrowserState> emit) async {
     final (offset, limit) = (0, 20);
@@ -46,10 +53,48 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
           offset: offset,
           limit: limit,
           countryCode: platformCountryCode,
+          countryName: Country.parse(platformCountryCode).name,
         ),
       ),
     );
   }
 
-  _onLoadMore() {}
+  Future<void> _onLoadMore(Emitter<RadioBrowserState> emit) async {
+    final currentState = state.mapOrNull(content: (value) => value);
+
+    if (currentState == null || currentState.isEndOfData) {
+      return;
+    }
+
+    emit(currentState.copyWith(isLoadingMore: true));
+
+    final (offset, limit) = (
+      currentState.offset + currentState.limit,
+      currentState.limit + currentState.limit,
+    );
+
+    final response = await _getRadioStationsByCountryCode(
+      currentState.countryCode!,
+      offset: offset,
+      limit: limit,
+    );
+
+    response.fold(
+      (left) => emit(RadioBrowserState.error(error: left)),
+      (right) => emit(
+        currentState.copyWith(
+          isLoadingMore: false,
+          stations: [...currentState.stations, ...right],
+          offset: offset,
+          limit: limit,
+        ),
+      ),
+    );
+  }
+
+  _onOpenStation(
+    Emitter<RadioBrowserState> emit,
+    _OpenStationRadioBrowserEvent e,
+  ) =>
+      _navigator.openRadioStation(e.station);
 }

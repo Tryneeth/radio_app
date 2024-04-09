@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:radio_app/src/core/di/di_initializer.dart';
+import 'package:radio_app/src/domain/models/radio_station.dart';
 import 'package:radio_app/src/presentation/radio/bloc/radio_bloc.dart';
 
 class RadioPage extends StatelessWidget {
-  const RadioPage({super.key, required this.url});
+  const RadioPage({super.key, required this.station});
 
-  final String url;
+  final RadioStation station;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class RadioPage extends StatelessWidget {
         title: const Text('Radio App'),
       ),
       body: BlocProvider<RadioBloc>(
-        create: (_) => getIt<RadioBloc>(param1: url),
+        create: (_) => getIt<RadioBloc>(param1: station),
         child: const _Content(),
       ),
     );
