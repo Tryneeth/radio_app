@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:radio_player/radio_player.dart';
@@ -12,7 +13,11 @@ part 'radio_bloc.freezed.dart';
 
 @injectable
 class RadioBloc extends Bloc<RadioEvent, RadioState> {
-  RadioBloc(this._radioPlayer) : super(const RadioState()) {
+  RadioBloc(
+    this._radioPlayer,
+    @factoryParam String url,
+  )   : _url = url,
+        super(const RadioState()) {
     on<RadioEvent>(
       (event, emit) => event.map(
         load: (_) => _onLoad(emit),
@@ -27,13 +32,12 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
   }
 
   final RadioPlayer _radioPlayer;
+  final String _url;
 
   Future<void> _onLoad(Emitter<RadioState> emit) async {
-    const url = 'http://stream-uk1.radioparadise.com/aac-320';
+    emit(state.copyWith(stationUrl: _url));
 
-    emit(state.copyWith(stationUrl: url));
-
-    await _setChannel(url);
+    await _setChannel(_url);
 
     final combinedStreams = CombineLatestStream.combine2(
       _radioPlayer.metadataStream,

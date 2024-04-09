@@ -21,6 +21,7 @@ mixin _$RadioStation {
   String get url => throw _privateConstructorUsedError;
   String get country => throw _privateConstructorUsedError;
   String get countrycode => throw _privateConstructorUsedError;
+  String? get favicon => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RadioStationCopyWith<RadioStation> get copyWith =>
@@ -34,7 +35,12 @@ abstract class $RadioStationCopyWith<$Res> {
       _$RadioStationCopyWithImpl<$Res, RadioStation>;
   @useResult
   $Res call(
-      {String id, String name, String url, String country, String countrycode});
+      {String id,
+      String name,
+      String url,
+      String country,
+      String countrycode,
+      String? favicon});
 }
 
 /// @nodoc
@@ -55,6 +61,7 @@ class _$RadioStationCopyWithImpl<$Res, $Val extends RadioStation>
     Object? url = null,
     Object? country = null,
     Object? countrycode = null,
+    Object? favicon = freezed,
   }) {
     return _then(_value.copyWith(
       id: null == id
@@ -77,6 +84,10 @@ class _$RadioStationCopyWithImpl<$Res, $Val extends RadioStation>
           ? _value.countrycode
           : countrycode // ignore: cast_nullable_to_non_nullable
               as String,
+      favicon: freezed == favicon
+          ? _value.favicon
+          : favicon // ignore: cast_nullable_to_non_nullable
+              as String?,
     ) as $Val);
   }
 }
@@ -90,7 +101,12 @@ abstract class _$$RadioStationImplCopyWith<$Res>
   @override
   @useResult
   $Res call(
-      {String id, String name, String url, String country, String countrycode});
+      {String id,
+      String name,
+      String url,
+      String country,
+      String countrycode,
+      String? favicon});
 }
 
 /// @nodoc
@@ -109,6 +125,7 @@ class __$$RadioStationImplCopyWithImpl<$Res>
     Object? url = null,
     Object? country = null,
     Object? countrycode = null,
+    Object? favicon = freezed,
   }) {
     return _then(_$RadioStationImpl(
       id: null == id
@@ -131,6 +148,10 @@ class __$$RadioStationImplCopyWithImpl<$Res>
           ? _value.countrycode
           : countrycode // ignore: cast_nullable_to_non_nullable
               as String,
+      favicon: freezed == favicon
+          ? _value.favicon
+          : favicon // ignore: cast_nullable_to_non_nullable
+              as String?,
     ));
   }
 }
@@ -143,7 +164,8 @@ class _$RadioStationImpl implements _RadioStation {
       required this.name,
       required this.url,
       required this.country,
-      required this.countrycode});
+      required this.countrycode,
+      this.favicon});
 
   @override
   final String id;
@@ -155,10 +177,12 @@ class _$RadioStationImpl implements _RadioStation {
   final String country;
   @override
   final String countrycode;
+  @override
+  final String? favicon;
 
   @override
   String toString() {
-    return 'RadioStation(id: $id, name: $name, url: $url, country: $country, countrycode: $countrycode)';
+    return 'RadioStation(id: $id, name: $name, url: $url, country: $country, countrycode: $countrycode, favicon: $favicon)';
   }
 
   @override
@@ -171,12 +195,13 @@ class _$RadioStationImpl implements _RadioStation {
             (identical(other.url, url) || other.url == url) &&
             (identical(other.country, country) || other.country == country) &&
             (identical(other.countrycode, countrycode) ||
-                other.countrycode == countrycode));
+                other.countrycode == countrycode) &&
+            (identical(other.favicon, favicon) || other.favicon == favicon));
   }
 
   @override
   int get hashCode =>
-      Object.hash(runtimeType, id, name, url, country, countrycode);
+      Object.hash(runtimeType, id, name, url, country, countrycode, favicon);
 
   @JsonKey(ignore: true)
   @override
@@ -191,7 +216,8 @@ abstract class _RadioStation implements RadioStation {
       required final String name,
       required final String url,
       required final String country,
-      required final String countrycode}) = _$RadioStationImpl;
+      required final String countrycode,
+      final String? favicon}) = _$RadioStationImpl;
 
   @override
   String get id;
@@ -203,6 +229,8 @@ abstract class _RadioStation implements RadioStation {
   String get country;
   @override
   String get countrycode;
+  @override
+  String? get favicon;
   @override
   @JsonKey(ignore: true)
   _$$RadioStationImplCopyWith<_$RadioStationImpl> get copyWith =>

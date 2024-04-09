@@ -7,7 +7,7 @@ part 'search_request.g.dart';
 class SearchRequest with _$SearchRequest {
   factory SearchRequest({
     @Default(0) int offset,
-    @Default(10) int limit,
+    @Default(20) int limit,
     @JsonKey(name: 'countrycode') required String countryCode,
     @Default(true) @JsonKey(name: 'hidebroken') bool hideBroken,
     @Default('clickcount') String order,

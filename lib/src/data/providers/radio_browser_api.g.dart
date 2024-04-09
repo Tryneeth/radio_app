@@ -23,17 +23,19 @@ class _RadioBrowserApi implements RadioBrowserApi {
       {required SearchRequest requestSearch}) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
-    final _headers = <String, dynamic>{};
+    final _headers = <String, dynamic>{r'Content-Type': 'application/json'};
+    _headers.removeWhere((k, v) => v == null);
     final _data = requestSearch;
     final _result = await _dio.fetch<List<dynamic>>(
         _setStreamType<List<RadioStationResponse>>(Options(
       method: 'POST',
       headers: _headers,
       extra: _extra,
+      contentType: 'application/json',
     )
             .compose(
               _dio.options,
-              'json/stations/search',
+              '/json/stations/search',
               queryParameters: queryParameters,
               data: _data,
             )

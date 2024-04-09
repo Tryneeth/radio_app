@@ -1,4 +1,4 @@
-import 'package:dio/dio.dart';
+import 'package:dio/dio.dart' hide Headers;
 import 'package:injectable/injectable.dart';
 import 'package:radio_app/src/core/enum/di_parameter_name.dart';
 import 'package:radio_app/src/data/dto/radio_station_response.dart';
@@ -17,8 +17,11 @@ abstract class RadioBrowserApi {
     @Named(ApiDiParameterName.baseUrlV1) String baseUrl,
   }) = _RadioBrowserApi;
 
-  @POST('json/stations/search')
+  @POST('/json/stations/search')
+  @Headers(<String, dynamic>{
+    'Content-Type': 'application/json',
+  })
   Future<List<RadioStationResponse>> searchByCountryCode({
-    @Body() SearchRequest requestSearch,
+    @Body() required SearchRequest requestSearch,
   });
 }

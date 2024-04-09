@@ -12,12 +12,18 @@ class RadioBrowserRepository with RepositoryHelperMixin {
   final RadioBrowserApi _api;
 
   Future<Either<Exception, List<RadioStation>>> searchByCountryCode(
-    String countryCode,
-  ) async =>
+    String countryCode, {
+    int? offset,
+    int? limit,
+  }) async =>
       fromAsync(
         () => _api
             .searchByCountryCode(
-              requestSearch: SearchRequest(countryCode: countryCode),
+              requestSearch: SearchRequest(
+                countryCode: countryCode,
+                offset: offset ?? 0,
+                limit: limit ?? 20,
+              ),
             )
             .then(
               (response) =>

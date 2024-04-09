@@ -15,25 +15,72 @@ abstract class _$ClientRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
-    HomePageRoute.name: (routeData) {
+    RadioBrowserRoute.name: (routeData) {
       return AutoRoutePage<void>(
         routeData: routeData,
-        child: const HomePageScreen(),
+        child: const RadioBrowserScreen(),
       );
-    }
+    },
+    RadioRoute.name: (routeData) {
+      final args = routeData.argsAs<RadioRouteArgs>();
+      return AutoRoutePage<void>(
+        routeData: routeData,
+        child: RadioScreen(
+          key: args.key,
+          url: args.url,
+        ),
+      );
+    },
   };
 }
 
 /// generated route for
-/// [HomePageScreen]
-class HomePageRoute extends PageRouteInfo<void> {
-  const HomePageRoute({List<PageRouteInfo>? children})
+/// [RadioBrowserScreen]
+class RadioBrowserRoute extends PageRouteInfo<void> {
+  const RadioBrowserRoute({List<PageRouteInfo>? children})
       : super(
-          HomePageRoute.name,
+          RadioBrowserRoute.name,
           initialChildren: children,
         );
 
-  static const String name = 'HomePageRoute';
+  static const String name = 'RadioBrowserRoute';
 
   static const PageInfo<void> page = PageInfo<void>(name);
+}
+
+/// generated route for
+/// [RadioScreen]
+class RadioRoute extends PageRouteInfo<RadioRouteArgs> {
+  RadioRoute({
+    Key? key,
+    required String url,
+    List<PageRouteInfo>? children,
+  }) : super(
+          RadioRoute.name,
+          args: RadioRouteArgs(
+            key: key,
+            url: url,
+          ),
+          initialChildren: children,
+        );
+
+  static const String name = 'RadioRoute';
+
+  static const PageInfo<RadioRouteArgs> page = PageInfo<RadioRouteArgs>(name);
+}
+
+class RadioRouteArgs {
+  const RadioRouteArgs({
+    this.key,
+    required this.url,
+  });
+
+  final Key? key;
+
+  final String url;
+
+  @override
+  String toString() {
+    return 'RadioRouteArgs{key: $key, url: $url}';
+  }
 }

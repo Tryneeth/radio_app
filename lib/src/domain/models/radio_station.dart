@@ -11,6 +11,7 @@ abstract class RadioStation with _$RadioStation {
     required String url,
     required String country,
     required String countrycode,
+    String? favicon,
   }) = _RadioStation;
 
   factory RadioStation.fromResponse(RadioStationResponse response) =>
@@ -20,5 +21,6 @@ abstract class RadioStation with _$RadioStation {
         url: response.url,
         country: response.country,
         countrycode: response.countrycode,
+        favicon: response.favicon,
       );
 }

@@ -110,12 +110,20 @@ class __$$LoadRadioEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$LoadRadioEventImpl implements _LoadRadioEvent {
+class _$LoadRadioEventImpl
+    with DiagnosticableTreeMixin
+    implements _LoadRadioEvent {
   const _$LoadRadioEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RadioEvent.load()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'RadioEvent.load'));
   }
 
   @override
@@ -245,15 +253,25 @@ class __$$SetChannelRadioEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$SetChannelRadioEventImpl implements _SetChannelRadioEvent {
+class _$SetChannelRadioEventImpl
+    with DiagnosticableTreeMixin
+    implements _SetChannelRadioEvent {
   const _$SetChannelRadioEventImpl(this.url);
 
   @override
   final String url;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RadioEvent.setChannel(url: $url)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RadioEvent.setChannel'))
+      ..add(DiagnosticsProperty('url', url));
   }
 
   @override
@@ -385,12 +403,20 @@ class __$$PlayChannelRadioEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PlayChannelRadioEventImpl implements _PlayChannelRadioEvent {
+class _$PlayChannelRadioEventImpl
+    with DiagnosticableTreeMixin
+    implements _PlayChannelRadioEvent {
   const _$PlayChannelRadioEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RadioEvent.play()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'RadioEvent.play'));
   }
 
   @override
@@ -508,12 +534,20 @@ class __$$PauseChannelRadioEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$PauseChannelRadioEventImpl implements _PauseChannelRadioEvent {
+class _$PauseChannelRadioEventImpl
+    with DiagnosticableTreeMixin
+    implements _PauseChannelRadioEvent {
   const _$PauseChannelRadioEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RadioEvent.pause()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'RadioEvent.pause'));
   }
 
   @override
@@ -630,12 +664,20 @@ class __$$StopChannelRadioEventImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$StopChannelRadioEventImpl implements _StopChannelRadioEvent {
+class _$StopChannelRadioEventImpl
+    with DiagnosticableTreeMixin
+    implements _StopChannelRadioEvent {
   const _$StopChannelRadioEventImpl();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RadioEvent.stop()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'RadioEvent.stop'));
   }
 
   @override
@@ -832,7 +874,7 @@ class __$$RadioStateImplCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$RadioStateImpl implements _RadioState {
+class _$RadioStateImpl with DiagnosticableTreeMixin implements _RadioState {
   const _$RadioStateImpl(
       {this.stationUrl,
       this.isPlaying = false,
@@ -854,8 +896,18 @@ class _$RadioStateImpl implements _RadioState {
   }
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'RadioState(stationUrl: $stationUrl, isPlaying: $isPlaying, metadata: $metadata)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'RadioState'))
+      ..add(DiagnosticsProperty('stationUrl', stationUrl))
+      ..add(DiagnosticsProperty('isPlaying', isPlaying))
+      ..add(DiagnosticsProperty('metadata', metadata));
   }
 
   @override

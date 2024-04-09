@@ -164,7 +164,7 @@ class __$$SearchRequestImplCopyWithImpl<$Res>
 class _$SearchRequestImpl implements _SearchRequest {
   _$SearchRequestImpl(
       {this.offset = 0,
-      this.limit = 10,
+      this.limit = 20,
       @JsonKey(name: 'countrycode') required this.countryCode,
       @JsonKey(name: 'hidebroken') this.hideBroken = true,
       this.order = 'clickcount',

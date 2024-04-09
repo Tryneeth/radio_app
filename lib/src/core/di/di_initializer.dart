@@ -9,7 +9,7 @@ final getIt = GetIt.instance;
 @injectableInit
 void appDIInitializer() => getIt
   ..registerSingleton(
-    'https://at1.api.radio-browser.info/',
+    'https://at1.api.radio-browser.info',
     instanceName: ApiDiParameterName.baseUrlV1,
   )
   ..init();
