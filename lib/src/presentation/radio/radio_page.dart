@@ -46,8 +46,8 @@ class _Content extends StatelessWidget {
           children: [
             if (state.isPlaying) ...[
               Positioned(
-                right: -xxxl,
-                bottom: 0,
+                right: -xxxl-xl,
+                bottom: lg,
                 top: 0,
                 child: Transform.rotate(
                   angle: -math.pi / 2.0,
@@ -55,7 +55,7 @@ class _Content extends StatelessWidget {
                 ),
               ),
               BackdropFilter(
-                filter: ImageFilter.blur(sigmaX: 10.0, sigmaY: 10.0),
+                filter: ImageFilter.blur(sigmaX: xs, sigmaY: xs),
                 child: Container(
                   decoration: const BoxDecoration(
                     shape: BoxShape.circle,
@@ -73,7 +73,7 @@ class _Content extends StatelessWidget {
             ),
             Positioned(
               top: mediaQuery.size.height / 6,
-              left: -200,
+              left: -250,
               child: Container(
                 height: mediaQuery.size.height / 2,
                 width: mediaQuery.size.height / 2,
@@ -105,7 +105,7 @@ class _Content extends StatelessWidget {
                         state.stationName,
                         style: Theme.of(context)
                             .primaryTextTheme
-                            .headlineMedium
+                            .labelLarge
                             ?.copyWith(color: Colors.black),
                       ),
                       const SizedBox(height: micro),

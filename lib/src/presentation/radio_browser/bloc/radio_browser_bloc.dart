@@ -61,7 +61,9 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
   Future<void> _onLoadMore(Emitter<RadioBrowserState> emit) async {
     final currentState = state.mapOrNull(content: (value) => value);
 
-    if (currentState == null || currentState.isEndOfData) {
+    if (currentState == null ||
+        currentState.isEndOfData ||
+        currentState.isLoadingMore) {
       return;
     }
 
@@ -69,7 +71,7 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
 
     final (offset, limit) = (
       currentState.offset + currentState.limit,
-      currentState.limit + currentState.limit,
+      currentState.limit,
     );
 
     final response = await _getRadioStationsByCountryCode(
@@ -86,6 +88,7 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
           stations: [...currentState.stations, ...right],
           offset: offset,
           limit: limit,
+          isEndOfData: right.isEmpty,
         ),
       ),
     );

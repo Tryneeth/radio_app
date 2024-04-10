@@ -38,6 +38,7 @@ class RadioBrowserPage extends StatelessWidget {
 
   void _showCountryPicker(BuildContext context) => showCountryPicker(
         context: context,
+        favorite: ['US', 'ES'],
         onSelect: (Country country) => context
             .read<RadioBrowserBloc>()
             .add(RadioBrowserEvent.changeCountry(country.countryCode)),
