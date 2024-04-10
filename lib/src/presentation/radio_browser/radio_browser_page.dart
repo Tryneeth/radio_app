@@ -104,7 +104,10 @@ class _RadioStationsListState extends State<_RadioStationsList> {
         return ListTile(
           leading: st.favicon != ''
               ? CircleAvatar(
-                  backgroundImage: Image.network(st.favicon!).image,
+                  backgroundImage: Image.network(
+                    st.favicon!,
+                    errorBuilder: _errorImageBuilder,
+                  ).image,
                 )
               : const CircleAvatar(
                   child: Icon(Icons.radio),
@@ -117,6 +120,10 @@ class _RadioStationsListState extends State<_RadioStationsList> {
       },
     );
   }
+
+  Widget _errorImageBuilder(context, error, stackTrace) => const CircleAvatar(
+        child: Icon(Icons.radio),
+      );
 
   void _onScroll() {
     final maxScroll = _scrollController.position.maxScrollExtent;
