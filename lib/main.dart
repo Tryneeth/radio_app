@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:radio_app/src/core/di/di_initializer.dart';
 import 'package:radio_app/src/core/navigation/router/router.dart';
 
-void main() {
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  await Hive.initFlutter();
   appDIInitializer();
   runApp(const MyApp());
 }
