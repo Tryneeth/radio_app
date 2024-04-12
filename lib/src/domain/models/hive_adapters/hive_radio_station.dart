@@ -25,6 +25,7 @@ class HiveRadioStation extends HiveObject {
         url: model.url,
         country: model.country,
         countrycode: model.countrycode,
+        favicon: model.favicon,
       );
 
   @HiveField(0)
@@ -41,4 +42,13 @@ class HiveRadioStation extends HiveObject {
   String? favicon;
 
   Map<String, dynamic> toJson() => _$HiveRadioStationToJson(this);
+
+  RadioStation toModel() => RadioStation(
+        id: id,
+        name: name,
+        url: url,
+        country: country,
+        countrycode: countrycode,
+        favicon: favicon,
+      );
 }

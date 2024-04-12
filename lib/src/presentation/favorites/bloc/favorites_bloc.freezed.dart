@@ -19,32 +19,38 @@ mixin _$FavoritesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(RadioStation station) openStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(RadioStation station)? openStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(RadioStation station)? openStation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadFavoritesEvent value) load,
+    required TResult Function(_OpenStationFavoritesEvent value) openStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadFavoritesEvent value)? load,
+    TResult? Function(_OpenStationFavoritesEvent value)? openStation,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadFavoritesEvent value)? load,
+    TResult Function(_OpenStationFavoritesEvent value)? openStation,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -107,6 +113,7 @@ class _$LoadFavoritesEventImpl implements _LoadFavoritesEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() load,
+    required TResult Function(RadioStation station) openStation,
   }) {
     return load();
   }
@@ -115,6 +122,7 @@ class _$LoadFavoritesEventImpl implements _LoadFavoritesEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult? Function()? load,
+    TResult? Function(RadioStation station)? openStation,
   }) {
     return load?.call();
   }
@@ -123,6 +131,7 @@ class _$LoadFavoritesEventImpl implements _LoadFavoritesEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? load,
+    TResult Function(RadioStation station)? openStation,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -135,6 +144,7 @@ class _$LoadFavoritesEventImpl implements _LoadFavoritesEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_LoadFavoritesEvent value) load,
+    required TResult Function(_OpenStationFavoritesEvent value) openStation,
   }) {
     return load(this);
   }
@@ -143,6 +153,7 @@ class _$LoadFavoritesEventImpl implements _LoadFavoritesEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult? Function(_LoadFavoritesEvent value)? load,
+    TResult? Function(_OpenStationFavoritesEvent value)? openStation,
   }) {
     return load?.call(this);
   }
@@ -151,6 +162,7 @@ class _$LoadFavoritesEventImpl implements _LoadFavoritesEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_LoadFavoritesEvent value)? load,
+    TResult Function(_OpenStationFavoritesEvent value)? openStation,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -162,6 +174,153 @@ class _$LoadFavoritesEventImpl implements _LoadFavoritesEvent {
 
 abstract class _LoadFavoritesEvent implements FavoritesEvent {
   const factory _LoadFavoritesEvent() = _$LoadFavoritesEventImpl;
+}
+
+/// @nodoc
+abstract class _$$OpenStationFavoritesEventImplCopyWith<$Res> {
+  factory _$$OpenStationFavoritesEventImplCopyWith(
+          _$OpenStationFavoritesEventImpl value,
+          $Res Function(_$OpenStationFavoritesEventImpl) then) =
+      __$$OpenStationFavoritesEventImplCopyWithImpl<$Res>;
+  @useResult
+  $Res call({RadioStation station});
+
+  $RadioStationCopyWith<$Res> get station;
+}
+
+/// @nodoc
+class __$$OpenStationFavoritesEventImplCopyWithImpl<$Res>
+    extends _$FavoritesEventCopyWithImpl<$Res, _$OpenStationFavoritesEventImpl>
+    implements _$$OpenStationFavoritesEventImplCopyWith<$Res> {
+  __$$OpenStationFavoritesEventImplCopyWithImpl(
+      _$OpenStationFavoritesEventImpl _value,
+      $Res Function(_$OpenStationFavoritesEventImpl) _then)
+      : super(_value, _then);
+
+  @pragma('vm:prefer-inline')
+  @override
+  $Res call({
+    Object? station = null,
+  }) {
+    return _then(_$OpenStationFavoritesEventImpl(
+      null == station
+          ? _value.station
+          : station // ignore: cast_nullable_to_non_nullable
+              as RadioStation,
+    ));
+  }
+
+  @override
+  @pragma('vm:prefer-inline')
+  $RadioStationCopyWith<$Res> get station {
+    return $RadioStationCopyWith<$Res>(_value.station, (value) {
+      return _then(_value.copyWith(station: value));
+    });
+  }
+}
+
+/// @nodoc
+
+class _$OpenStationFavoritesEventImpl implements _OpenStationFavoritesEvent {
+  const _$OpenStationFavoritesEventImpl(this.station);
+
+  @override
+  final RadioStation station;
+
+  @override
+  String toString() {
+    return 'FavoritesEvent.openStation(station: $station)';
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OpenStationFavoritesEventImpl &&
+            (identical(other.station, station) || other.station == station));
+  }
+
+  @override
+  int get hashCode => Object.hash(runtimeType, station);
+
+  @JsonKey(ignore: true)
+  @override
+  @pragma('vm:prefer-inline')
+  _$$OpenStationFavoritesEventImplCopyWith<_$OpenStationFavoritesEventImpl>
+      get copyWith => __$$OpenStationFavoritesEventImplCopyWithImpl<
+          _$OpenStationFavoritesEventImpl>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(RadioStation station) openStation,
+  }) {
+    return openStation(station);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(RadioStation station)? openStation,
+  }) {
+    return openStation?.call(station);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(RadioStation station)? openStation,
+    required TResult orElse(),
+  }) {
+    if (openStation != null) {
+      return openStation(station);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadFavoritesEvent value) load,
+    required TResult Function(_OpenStationFavoritesEvent value) openStation,
+  }) {
+    return openStation(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadFavoritesEvent value)? load,
+    TResult? Function(_OpenStationFavoritesEvent value)? openStation,
+  }) {
+    return openStation?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadFavoritesEvent value)? load,
+    TResult Function(_OpenStationFavoritesEvent value)? openStation,
+    required TResult orElse(),
+  }) {
+    if (openStation != null) {
+      return openStation(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenStationFavoritesEvent implements FavoritesEvent {
+  const factory _OpenStationFavoritesEvent(final RadioStation station) =
+      _$OpenStationFavoritesEventImpl;
+
+  RadioStation get station;
+  @JsonKey(ignore: true)
+  _$$OpenStationFavoritesEventImplCopyWith<_$OpenStationFavoritesEventImpl>
+      get copyWith => throw _privateConstructorUsedError;
 }
 
 /// @nodoc

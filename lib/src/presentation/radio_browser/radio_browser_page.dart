@@ -108,6 +108,9 @@ class _RadioStationsListState extends State<_RadioStationsList> {
       itemCount: widget.stations.length,
       itemBuilder: (context, index) => RadioStationTile(
         station: widget.stations[index],
+        onTap: () => context.read<RadioBrowserBloc>().add(
+              RadioBrowserEvent.openStation(widget.stations[index]),
+            ),
       ),
     );
   }

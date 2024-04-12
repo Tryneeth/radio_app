@@ -17,17 +17,34 @@ class RadioPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        scrolledUnderElevation: 0.0,
-        elevation: 0.0,
-        title: Text(station.name),
-      ),
-      extendBodyBehindAppBar: true,
-      body: BlocProvider<RadioBloc>(
-        create: (_) => getIt<RadioBloc>(param1: station),
-        child: const _Content(),
+    return BlocProvider<RadioBloc>(
+      create: (_) => getIt<RadioBloc>(param1: station),
+      child: BlocBuilder<RadioBloc, RadioState>(
+        builder: (context, state) {
+          return Scaffold(
+            appBar: AppBar(
+              backgroundColor: Colors.transparent,
+              scrolledUnderElevation: 0.0,
+              elevation: 0.0,
+              title: Text(station.name),
+              actions: [
+                IconButton(
+                  onPressed: () => context
+                      .read<RadioBloc>()
+                      .add(const RadioEvent.toggleFavorite()),
+                  icon: state.isFavorite
+                      ? const Icon(
+                          Icons.favorite,
+                          color: Colors.red,
+                        )
+                      : const Icon(Icons.favorite_border_outlined),
+                ),
+              ],
+            ),
+            extendBodyBehindAppBar: true,
+            body: const _Content(),
+          );
+        },
       ),
     );
   }
@@ -46,7 +63,7 @@ class _Content extends StatelessWidget {
           children: [
             if (state.isPlaying) ...[
               Positioned(
-                right: -xxxl-xl,
+                right: -xxxl - xl,
                 bottom: lg,
                 top: 0,
                 child: Transform.rotate(
@@ -139,38 +156,9 @@ class _Content extends StatelessWidget {
                   ],
                 ),
               ),
-            )
+            ),
           ],
         ),
-      ),
-    );
-  }
-}
-
-class _OldContent extends StatelessWidget {
-  const _OldContent();
-
-  @override
-  Widget build(BuildContext context) {
-    final bloc = context.read<RadioBloc>();
-    return BlocBuilder<RadioBloc, RadioState>(
-      builder: (context, state) => Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Text(state.stationName),
-          Text(state.stationDescription),
-          Center(
-            child: FloatingActionButton(
-              onPressed: () => state.isPlaying
-                  ? bloc.add(const RadioEvent.pause())
-                  : bloc.add(const RadioEvent.play()),
-              tooltip: 'Play/Pause',
-              child: state.isPlaying
-                  ? const Icon(Icons.stop)
-                  : const Icon(Icons.play_arrow),
-            ),
-          ),
-        ],
       ),
     );
   }

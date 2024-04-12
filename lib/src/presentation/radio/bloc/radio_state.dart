@@ -6,6 +6,7 @@ class RadioState with _$RadioState {
     String? stationUrl,
     @Default(false) bool isPlaying,
     @Default([]) List<String> metadata,
+    @Default(false) bool isFavorite,
   }) = _RadioState;
 }
 

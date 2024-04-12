@@ -30,10 +30,18 @@ class _RadioStationsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocBuilder<FavoritesBloc, FavoritesState>(
       builder: (context, state) {
+        if (state.stations.isEmpty) {
+          return const Center(
+            child: Text('No favorite stations saved'),
+          );
+        }
         return ListView.builder(
           itemCount: state.stations.length,
           itemBuilder: (context, index) => RadioStationTile(
             station: state.stations[index],
+            onTap: () => context
+                .read<FavoritesBloc>()
+                .add(FavoritesEvent.openStation(state.stations[index])),
           ),
         );
       },
