@@ -22,6 +22,7 @@ mixin _$RadioBrowserEvent {
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
     required TResult Function(String countryCode) changeCountry,
+    required TResult Function() openFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -30,6 +31,7 @@ mixin _$RadioBrowserEvent {
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
     TResult? Function(String countryCode)? changeCountry,
+    TResult? Function()? openFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -38,6 +40,7 @@ mixin _$RadioBrowserEvent {
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
     TResult Function(String countryCode)? changeCountry,
+    TResult Function()? openFavorites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -48,6 +51,8 @@ mixin _$RadioBrowserEvent {
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
     required TResult Function(_ChangeCountryRadioBrowserEvent value)
         changeCountry,
+    required TResult Function(_OpenFavoritesRadioBrowserEvent value)
+        openFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -56,6 +61,7 @@ mixin _$RadioBrowserEvent {
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult? Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -64,6 +70,7 @@ mixin _$RadioBrowserEvent {
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -139,6 +146,7 @@ class _$LoadRadioBrowserEventImpl
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
     required TResult Function(String countryCode) changeCountry,
+    required TResult Function() openFavorites,
   }) {
     return load();
   }
@@ -150,6 +158,7 @@ class _$LoadRadioBrowserEventImpl
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
     TResult? Function(String countryCode)? changeCountry,
+    TResult? Function()? openFavorites,
   }) {
     return load?.call();
   }
@@ -161,6 +170,7 @@ class _$LoadRadioBrowserEventImpl
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
     TResult Function(String countryCode)? changeCountry,
+    TResult Function()? openFavorites,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -177,6 +187,8 @@ class _$LoadRadioBrowserEventImpl
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
     required TResult Function(_ChangeCountryRadioBrowserEvent value)
         changeCountry,
+    required TResult Function(_OpenFavoritesRadioBrowserEvent value)
+        openFavorites,
   }) {
     return load(this);
   }
@@ -188,6 +200,7 @@ class _$LoadRadioBrowserEventImpl
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult? Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
   }) {
     return load?.call(this);
   }
@@ -199,6 +212,7 @@ class _$LoadRadioBrowserEventImpl
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -266,6 +280,7 @@ class _$LoadMoreRadioBrowserEventImpl
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
     required TResult Function(String countryCode) changeCountry,
+    required TResult Function() openFavorites,
   }) {
     return loadMore();
   }
@@ -277,6 +292,7 @@ class _$LoadMoreRadioBrowserEventImpl
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
     TResult? Function(String countryCode)? changeCountry,
+    TResult? Function()? openFavorites,
   }) {
     return loadMore?.call();
   }
@@ -288,6 +304,7 @@ class _$LoadMoreRadioBrowserEventImpl
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
     TResult Function(String countryCode)? changeCountry,
+    TResult Function()? openFavorites,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -304,6 +321,8 @@ class _$LoadMoreRadioBrowserEventImpl
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
     required TResult Function(_ChangeCountryRadioBrowserEvent value)
         changeCountry,
+    required TResult Function(_OpenFavoritesRadioBrowserEvent value)
+        openFavorites,
   }) {
     return loadMore(this);
   }
@@ -315,6 +334,7 @@ class _$LoadMoreRadioBrowserEventImpl
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult? Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
   }) {
     return loadMore?.call(this);
   }
@@ -326,6 +346,7 @@ class _$LoadMoreRadioBrowserEventImpl
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
     required TResult orElse(),
   }) {
     if (loadMore != null) {
@@ -432,6 +453,7 @@ class _$OpenStationRadioBrowserEventImpl
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
     required TResult Function(String countryCode) changeCountry,
+    required TResult Function() openFavorites,
   }) {
     return openStation(station);
   }
@@ -443,6 +465,7 @@ class _$OpenStationRadioBrowserEventImpl
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
     TResult? Function(String countryCode)? changeCountry,
+    TResult? Function()? openFavorites,
   }) {
     return openStation?.call(station);
   }
@@ -454,6 +477,7 @@ class _$OpenStationRadioBrowserEventImpl
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
     TResult Function(String countryCode)? changeCountry,
+    TResult Function()? openFavorites,
     required TResult orElse(),
   }) {
     if (openStation != null) {
@@ -470,6 +494,8 @@ class _$OpenStationRadioBrowserEventImpl
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
     required TResult Function(_ChangeCountryRadioBrowserEvent value)
         changeCountry,
+    required TResult Function(_OpenFavoritesRadioBrowserEvent value)
+        openFavorites,
   }) {
     return openStation(this);
   }
@@ -481,6 +507,7 @@ class _$OpenStationRadioBrowserEventImpl
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult? Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
   }) {
     return openStation?.call(this);
   }
@@ -492,6 +519,7 @@ class _$OpenStationRadioBrowserEventImpl
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
     required TResult orElse(),
   }) {
     if (openStation != null) {
@@ -596,6 +624,7 @@ class _$ChangeCountryRadioBrowserEventImpl
     required TResult Function() loadMore,
     required TResult Function(RadioStation station) openStation,
     required TResult Function(String countryCode) changeCountry,
+    required TResult Function() openFavorites,
   }) {
     return changeCountry(countryCode);
   }
@@ -607,6 +636,7 @@ class _$ChangeCountryRadioBrowserEventImpl
     TResult? Function()? loadMore,
     TResult? Function(RadioStation station)? openStation,
     TResult? Function(String countryCode)? changeCountry,
+    TResult? Function()? openFavorites,
   }) {
     return changeCountry?.call(countryCode);
   }
@@ -618,6 +648,7 @@ class _$ChangeCountryRadioBrowserEventImpl
     TResult Function()? loadMore,
     TResult Function(RadioStation station)? openStation,
     TResult Function(String countryCode)? changeCountry,
+    TResult Function()? openFavorites,
     required TResult orElse(),
   }) {
     if (changeCountry != null) {
@@ -634,6 +665,8 @@ class _$ChangeCountryRadioBrowserEventImpl
     required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
     required TResult Function(_ChangeCountryRadioBrowserEvent value)
         changeCountry,
+    required TResult Function(_OpenFavoritesRadioBrowserEvent value)
+        openFavorites,
   }) {
     return changeCountry(this);
   }
@@ -645,6 +678,7 @@ class _$ChangeCountryRadioBrowserEventImpl
     TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult? Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
   }) {
     return changeCountry?.call(this);
   }
@@ -656,6 +690,7 @@ class _$ChangeCountryRadioBrowserEventImpl
     TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
     TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
     TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
     required TResult orElse(),
   }) {
     if (changeCountry != null) {
@@ -674,6 +709,142 @@ abstract class _ChangeCountryRadioBrowserEvent implements RadioBrowserEvent {
   _$$ChangeCountryRadioBrowserEventImplCopyWith<
           _$ChangeCountryRadioBrowserEventImpl>
       get copyWith => throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$$OpenFavoritesRadioBrowserEventImplCopyWith<$Res> {
+  factory _$$OpenFavoritesRadioBrowserEventImplCopyWith(
+          _$OpenFavoritesRadioBrowserEventImpl value,
+          $Res Function(_$OpenFavoritesRadioBrowserEventImpl) then) =
+      __$$OpenFavoritesRadioBrowserEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$OpenFavoritesRadioBrowserEventImplCopyWithImpl<$Res>
+    extends _$RadioBrowserEventCopyWithImpl<$Res,
+        _$OpenFavoritesRadioBrowserEventImpl>
+    implements _$$OpenFavoritesRadioBrowserEventImplCopyWith<$Res> {
+  __$$OpenFavoritesRadioBrowserEventImplCopyWithImpl(
+      _$OpenFavoritesRadioBrowserEventImpl _value,
+      $Res Function(_$OpenFavoritesRadioBrowserEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$OpenFavoritesRadioBrowserEventImpl
+    with DiagnosticableTreeMixin
+    implements _OpenFavoritesRadioBrowserEvent {
+  const _$OpenFavoritesRadioBrowserEventImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RadioBrowserEvent.openFavorites()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+        .add(DiagnosticsProperty('type', 'RadioBrowserEvent.openFavorites'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$OpenFavoritesRadioBrowserEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function() loadMore,
+    required TResult Function(RadioStation station) openStation,
+    required TResult Function(String countryCode) changeCountry,
+    required TResult Function() openFavorites,
+  }) {
+    return openFavorites();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function()? loadMore,
+    TResult? Function(RadioStation station)? openStation,
+    TResult? Function(String countryCode)? changeCountry,
+    TResult? Function()? openFavorites,
+  }) {
+    return openFavorites?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function()? loadMore,
+    TResult Function(RadioStation station)? openStation,
+    TResult Function(String countryCode)? changeCountry,
+    TResult Function()? openFavorites,
+    required TResult orElse(),
+  }) {
+    if (openFavorites != null) {
+      return openFavorites();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRadioBrowserEvent value) load,
+    required TResult Function(_LoadMoreRadioBrowserEvent value) loadMore,
+    required TResult Function(_OpenStationRadioBrowserEvent value) openStation,
+    required TResult Function(_ChangeCountryRadioBrowserEvent value)
+        changeCountry,
+    required TResult Function(_OpenFavoritesRadioBrowserEvent value)
+        openFavorites,
+  }) {
+    return openFavorites(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRadioBrowserEvent value)? load,
+    TResult? Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult? Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult? Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult? Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
+  }) {
+    return openFavorites?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRadioBrowserEvent value)? load,
+    TResult Function(_LoadMoreRadioBrowserEvent value)? loadMore,
+    TResult Function(_OpenStationRadioBrowserEvent value)? openStation,
+    TResult Function(_ChangeCountryRadioBrowserEvent value)? changeCountry,
+    TResult Function(_OpenFavoritesRadioBrowserEvent value)? openFavorites,
+    required TResult orElse(),
+  }) {
+    if (openFavorites != null) {
+      return openFavorites(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _OpenFavoritesRadioBrowserEvent implements RadioBrowserEvent {
+  const factory _OpenFavoritesRadioBrowserEvent() =
+      _$OpenFavoritesRadioBrowserEventImpl;
 }
 
 /// @nodoc

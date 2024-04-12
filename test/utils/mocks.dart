@@ -1,8 +1,21 @@
+import 'dart:io';
+
+import 'package:hive_flutter/hive_flutter.dart';
 import 'package:mockito/annotations.dart';
+import 'package:radio_app/src/core/di/di_initializer.dart';
+import 'package:radio_app/src/data/providers/radio_favorites_hive.dart';
 import 'package:radio_app/src/domain/models/radio_station.dart';
 import 'package:radio_app/src/presentation/navigators/radio_browser_navigator.dart';
 
-@GenerateNiceMocks([MockSpec<RadioBrowserNavigator>()])
+@GenerateNiceMocks(
+  [
+    MockSpec<RadioBrowserNavigator>(),
+    MockSpec<RadioFavoritesHive>(),
+  ],
+)
+const baseUrl = 'https://at1.api.radio-browser.info';
+const searchPath = '/json/stations/search';
+
 const stations = '''
 [
     {
@@ -130,3 +143,17 @@ final mockStation = RadioStation(
   countrycode: 'US',
   favicon: 'https://www.radioparadise.com/favicon-32x32.png',
 );
+
+final _path = Directory.current.path;
+String hiveTestPath(String subDir) => '$_path/test/hive_testing_path/$subDir';
+
+void initTests(String subDir) {
+  Hive.init(hiveTestPath(subDir));
+  appDIInitializer();
+}
+
+void deleteHiveTestingDirectory(String subDir) {
+  try {
+    Directory('$hiveTestPath()$subDir').delete(recursive: true);
+  } catch (_) {}
+}

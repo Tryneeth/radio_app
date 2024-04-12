@@ -7,4 +7,5 @@ class RadioEvent with _$RadioEvent {
   const factory RadioEvent.play() = _PlayChannelRadioEvent;
   const factory RadioEvent.pause() = _PauseChannelRadioEvent;
   const factory RadioEvent.stop() = _StopChannelRadioEvent;
+  const factory RadioEvent.toggleFavorite() = _ToggleFavoriteChannelRadioEvent;
 }

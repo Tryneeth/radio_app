@@ -12,3 +12,8 @@ class RadioScreen extends RadioPage {
 class RadioBrowserScreen extends RadioBrowserPage {
   const RadioBrowserScreen({super.key});
 }
+
+@RoutePage<void>()
+class FavoritesScreen extends FavoritesPage {
+  const FavoritesScreen({super.key});
+}

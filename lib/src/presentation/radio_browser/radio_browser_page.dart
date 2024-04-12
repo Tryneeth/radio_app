@@ -2,10 +2,12 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:radio_app/src/core/di/di_initializer.dart';
+import 'package:radio_app/src/core/ui/atoms/dimensions.dart';
 import 'package:radio_app/src/core/ui/pages/error_view.dart';
 import 'package:radio_app/src/core/ui/pages/loading_view.dart';
 import 'package:radio_app/src/domain/models/radio_station.dart';
 import 'package:radio_app/src/presentation/radio_browser/bloc/radio_browser_bloc.dart';
+import 'package:radio_app/src/presentation/widgets/radio_station_tile.dart';
 
 class RadioBrowserPage extends StatelessWidget {
   const RadioBrowserPage({super.key});
@@ -21,6 +23,12 @@ class RadioBrowserPage extends StatelessWidget {
               elevation: 0.0,
               title: Text(st.countryName ?? ''),
               backgroundColor: Theme.of(context).scaffoldBackgroundColor,
+              leading: IconButton(
+                onPressed: () => context
+                    .read<RadioBrowserBloc>()
+                    .add(const RadioBrowserEvent.openFavorites()),
+                icon: const Icon(Icons.favorite),
+              ),
               actions: [
                 IconButton(
                   onPressed: () => _showCountryPicker(context),
@@ -39,6 +47,9 @@ class RadioBrowserPage extends StatelessWidget {
   void _showCountryPicker(BuildContext context) => showCountryPicker(
         context: context,
         favorite: ['US', 'ES'],
+        countryListTheme: CountryListThemeData(
+          padding: dimen.all.xs - dimen.bottom.xs,
+        ),
         onSelect: (Country country) => context
             .read<RadioBrowserBloc>()
             .add(RadioBrowserEvent.changeCountry(country.countryCode)),
@@ -99,31 +110,14 @@ class _RadioStationsListState extends State<_RadioStationsList> {
     return ListView.builder(
       controller: _scrollController,
       itemCount: widget.stations.length,
-      itemBuilder: (context, index) {
-        final st = widget.stations[index];
-        return ListTile(
-          leading: st.favicon != ''
-              ? CircleAvatar(
-                  backgroundImage: Image.network(
-                    st.favicon!,
-                    errorBuilder: _errorImageBuilder,
-                  ).image,
-                )
-              : const CircleAvatar(
-                  child: Icon(Icons.radio),
-                ),
-          title: Text(st.name),
-          onTap: () => context.read<RadioBrowserBloc>().add(
-                RadioBrowserEvent.openStation(st),
-              ),
-        );
-      },
+      itemBuilder: (context, index) => RadioStationTile(
+        station: widget.stations[index],
+        onTap: () => context.read<RadioBrowserBloc>().add(
+              RadioBrowserEvent.openStation(widget.stations[index]),
+            ),
+      ),
     );
   }
-
-  Widget _errorImageBuilder(context, error, stackTrace) => const CircleAvatar(
-        child: Icon(Icons.radio),
-      );
 
   void _onScroll() {
     final maxScroll = _scrollController.position.maxScrollExtent;

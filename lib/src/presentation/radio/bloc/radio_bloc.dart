@@ -2,10 +2,12 @@ import 'dart:async';
 
 import 'package:bloc/bloc.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:radio_app/src/domain/models/radio_station.dart';
+import 'package:radio_app/src/domain/usecases/get_single_favorite_station_usecase.dart';
+import 'package:radio_app/src/domain/usecases/remove_favorite_radio_station_usecase.dart';
+import 'package:radio_app/src/domain/usecases/save_favorite_radio_station_usecase.dart';
 import 'package:radio_player/radio_player.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -18,6 +20,9 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
   RadioBloc(
     this._radioPlayer,
     @factoryParam RadioStation station,
+    this._saveFavoriteRadioStationUsecase,
+    this._removeFavoriteRadioStationUsecase,
+    this._getSingleFavoriteStationUsecase,
   )   : _station = station,
         super(const RadioState()) {
     on<RadioEvent>(
@@ -27,6 +32,7 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
         play: (_) => _onPlay(emit),
         pause: (_) => _onPause(emit),
         stop: (_) => _onStop(emit),
+        toggleFavorite: (_) => _onToggleFavorite(emit),
       ),
     );
 
@@ -35,6 +41,9 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
 
   final RadioPlayer _radioPlayer;
   final RadioStation _station;
+  final GetSingleFavoriteStationUsecase _getSingleFavoriteStationUsecase;
+  final SaveFavoriteRadioStationUsecase _saveFavoriteRadioStationUsecase;
+  final RemoveFavoriteRadioStationUsecase _removeFavoriteRadioStationUsecase;
 
   @override
   Future<void> close() {
@@ -43,7 +52,10 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
   }
 
   Future<void> _onLoad(Emitter<RadioState> emit) async {
-    emit(state.copyWith(stationUrl: _station.url));
+    final response = await _getSingleFavoriteStationUsecase(_station.id);
+    final isFavorite = response.fold((left) => false, (right) => right != null);
+
+    emit(state.copyWith(stationUrl: _station.url, isFavorite: isFavorite));
     await _setChannel(_station.url);
 
     final combinedStreams = CombineLatestStream.combine2(
@@ -90,5 +102,21 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
       title: 'title',
       url: url,
     );
+  }
+
+  Future<void> _onToggleFavorite(Emitter<RadioState> emit) async {
+    if (state.isFavorite) {
+      final response = await _removeFavoriteRadioStationUsecase(_station.id);
+      response.fold(
+        (left) => null,
+        (right) => emit(state.copyWith(isFavorite: false)),
+      );
+    } else {
+      final response = await _saveFavoriteRadioStationUsecase(_station);
+      response.fold(
+        (left) => null,
+        (right) => emit(state.copyWith(isFavorite: true)),
+      );
+    }
   }
 }

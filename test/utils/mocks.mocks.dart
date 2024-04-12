@@ -3,12 +3,17 @@
 // Do not manually edit this file.
 
 // ignore_for_file: no_leading_underscores_for_library_prefixes
-import 'dart:async' as _i3;
+import 'dart:async' as _i4;
 
+import 'package:hive_flutter/hive_flutter.dart' as _i2;
 import 'package:mockito/mockito.dart' as _i1;
-import 'package:radio_app/src/domain/models/radio_station.dart' as _i4;
+import 'package:mockito/src/dummies.dart' as _i7;
+import 'package:radio_app/src/data/providers/radio_favorites_hive.dart' as _i6;
+import 'package:radio_app/src/domain/models/hive_adapters/hive_radio_station.dart'
+    as _i8;
+import 'package:radio_app/src/domain/models/radio_station.dart' as _i5;
 import 'package:radio_app/src/presentation/navigators/radio_browser_navigator.dart'
-    as _i2;
+    as _i3;
 
 // ignore_for_file: type=lint
 // ignore_for_file: avoid_redundant_argument_values
@@ -23,18 +28,456 @@ import 'package:radio_app/src/presentation/navigators/radio_browser_navigator.da
 // ignore_for_file: camel_case_types
 // ignore_for_file: subtype_of_sealed_class
 
+class _FakeHiveInterface_0 extends _i1.SmartFake implements _i2.HiveInterface {
+  _FakeHiveInterface_0(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
+class _FakeBoxBase_1<E> extends _i1.SmartFake implements _i2.BoxBase<E> {
+  _FakeBoxBase_1(
+    Object parent,
+    Invocation parentInvocation,
+  ) : super(
+          parent,
+          parentInvocation,
+        );
+}
+
 /// A class which mocks [RadioBrowserNavigator].
 ///
 /// See the documentation for Mockito's code generation for more information.
 class MockRadioBrowserNavigator extends _i1.Mock
-    implements _i2.RadioBrowserNavigator {
+    implements _i3.RadioBrowserNavigator {
   @override
-  _i3.FutureOr<void> openRadioStation(_i4.RadioStation? station) =>
+  _i4.FutureOr<void> openRadioStation(_i5.RadioStation? station) =>
       (super.noSuchMethod(
         Invocation.method(
           #openRadioStation,
           [station],
         ),
         returnValueForMissingStub: null,
-      ) as _i3.FutureOr<void>);
+      ) as _i4.FutureOr<void>);
+}
+
+/// A class which mocks [RadioFavoritesHive].
+///
+/// See the documentation for Mockito's code generation for more information.
+class MockRadioFavoritesHive extends _i1.Mock
+    implements _i6.RadioFavoritesHive {
+  @override
+  String get name => (super.noSuchMethod(
+        Invocation.getter(#name),
+        returnValue: _i7.dummyValue<String>(
+          this,
+          Invocation.getter(#name),
+        ),
+        returnValueForMissingStub: _i7.dummyValue<String>(
+          this,
+          Invocation.getter(#name),
+        ),
+      ) as String);
+
+  @override
+  bool get lazy => (super.noSuchMethod(
+        Invocation.getter(#lazy),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i2.KeyComparator get keyComparator => (super.noSuchMethod(
+        Invocation.getter(#keyComparator),
+        returnValue: (
+          dynamic key1,
+          dynamic key2,
+        ) =>
+            0,
+        returnValueForMissingStub: (
+          dynamic key1,
+          dynamic key2,
+        ) =>
+            0,
+      ) as _i2.KeyComparator);
+
+  @override
+  _i2.CompactionStrategy get compactionStrategy => (super.noSuchMethod(
+        Invocation.getter(#compactionStrategy),
+        returnValue: (
+          int entries,
+          int deletedEntries,
+        ) =>
+            false,
+        returnValueForMissingStub: (
+          int entries,
+          int deletedEntries,
+        ) =>
+            false,
+      ) as _i2.CompactionStrategy);
+
+  @override
+  bool get crashRecovery => (super.noSuchMethod(
+        Invocation.getter(#crashRecovery),
+        returnValue: false,
+        returnValueForMissingStub: false,
+      ) as bool);
+
+  @override
+  _i2.HiveInterface get hive => (super.noSuchMethod(
+        Invocation.getter(#hive),
+        returnValue: _FakeHiveInterface_0(
+          this,
+          Invocation.getter(#hive),
+        ),
+        returnValueForMissingStub: _FakeHiveInterface_0(
+          this,
+          Invocation.getter(#hive),
+        ),
+      ) as _i2.HiveInterface);
+
+  @override
+  set hive(_i2.HiveInterface? _hive) => super.noSuchMethod(
+        Invocation.setter(
+          #hive,
+          _hive,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i2.BoxBase<_i8.HiveRadioStation> get box => (super.noSuchMethod(
+        Invocation.getter(#box),
+        returnValue: _FakeBoxBase_1<_i8.HiveRadioStation>(
+          this,
+          Invocation.getter(#box),
+        ),
+        returnValueForMissingStub: _FakeBoxBase_1<_i8.HiveRadioStation>(
+          this,
+          Invocation.getter(#box),
+        ),
+      ) as _i2.BoxBase<_i8.HiveRadioStation>);
+
+  @override
+  set box(_i2.BoxBase<_i8.HiveRadioStation>? _box) => super.noSuchMethod(
+        Invocation.setter(
+          #box,
+          _box,
+        ),
+        returnValueForMissingStub: null,
+      );
+
+  @override
+  _i4.Future<bool> get isOpen => (super.noSuchMethod(
+        Invocation.getter(#isOpen),
+        returnValue: _i4.Future<bool>.value(false),
+        returnValueForMissingStub: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
+
+  @override
+  _i4.Future<String?> get path => (super.noSuchMethod(
+        Invocation.getter(#path),
+        returnValue: _i4.Future<String?>.value(),
+        returnValueForMissingStub: _i4.Future<String?>.value(),
+      ) as _i4.Future<String?>);
+
+  @override
+  _i4.Future<Iterable<dynamic>> get keys => (super.noSuchMethod(
+        Invocation.getter(#keys),
+        returnValue: _i4.Future<Iterable<dynamic>>.value(<dynamic>[]),
+        returnValueForMissingStub:
+            _i4.Future<Iterable<dynamic>>.value(<dynamic>[]),
+      ) as _i4.Future<Iterable<dynamic>>);
+
+  @override
+  _i4.Future<int> get length => (super.noSuchMethod(
+        Invocation.getter(#length),
+        returnValue: _i4.Future<int>.value(0),
+        returnValueForMissingStub: _i4.Future<int>.value(0),
+      ) as _i4.Future<int>);
+
+  @override
+  _i4.Future<bool> get isEmpty => (super.noSuchMethod(
+        Invocation.getter(#isEmpty),
+        returnValue: _i4.Future<bool>.value(false),
+        returnValueForMissingStub: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
+
+  @override
+  _i4.Future<bool> get isNotEmpty => (super.noSuchMethod(
+        Invocation.getter(#isNotEmpty),
+        returnValue: _i4.Future<bool>.value(false),
+        returnValueForMissingStub: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
+
+  @override
+  _i4.Future<Iterable<_i8.HiveRadioStation>?> get values => (super.noSuchMethod(
+        Invocation.getter(#values),
+        returnValue: _i4.Future<Iterable<_i8.HiveRadioStation>?>.value(),
+        returnValueForMissingStub:
+            _i4.Future<Iterable<_i8.HiveRadioStation>?>.value(),
+      ) as _i4.Future<Iterable<_i8.HiveRadioStation>?>);
+
+  @override
+  _i4.Future<_i2.BoxBase<_i8.HiveRadioStation>> init(
+          [_i2.HiveInterface? hive]) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #init,
+          [hive],
+        ),
+        returnValue: _i4.Future<_i2.BoxBase<_i8.HiveRadioStation>>.value(
+            _FakeBoxBase_1<_i8.HiveRadioStation>(
+          this,
+          Invocation.method(
+            #init,
+            [hive],
+          ),
+        )),
+        returnValueForMissingStub:
+            _i4.Future<_i2.BoxBase<_i8.HiveRadioStation>>.value(
+                _FakeBoxBase_1<_i8.HiveRadioStation>(
+          this,
+          Invocation.method(
+            #init,
+            [hive],
+          ),
+        )),
+      ) as _i4.Future<_i2.BoxBase<_i8.HiveRadioStation>>);
+
+  @override
+  _i4.Future<void> reopen() => (super.noSuchMethod(
+        Invocation.method(
+          #reopen,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<Iterable<_i8.HiveRadioStation>?> valuesBetween({
+    dynamic startKey,
+    dynamic endKey,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #valuesBetween,
+          [],
+          {
+            #startKey: startKey,
+            #endKey: endKey,
+          },
+        ),
+        returnValue: _i4.Future<Iterable<_i8.HiveRadioStation>?>.value(),
+        returnValueForMissingStub:
+            _i4.Future<Iterable<_i8.HiveRadioStation>?>.value(),
+      ) as _i4.Future<Iterable<_i8.HiveRadioStation>?>);
+
+  @override
+  _i4.Future<_i8.HiveRadioStation?> get(
+    dynamic key, {
+    _i8.HiveRadioStation? defaultValue,
+  }) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #get,
+          [key],
+          {#defaultValue: defaultValue},
+        ),
+        returnValue: _i4.Future<_i8.HiveRadioStation?>.value(),
+        returnValueForMissingStub: _i4.Future<_i8.HiveRadioStation?>.value(),
+      ) as _i4.Future<_i8.HiveRadioStation?>);
+
+  @override
+  _i4.Future<_i8.HiveRadioStation?> getAt(int? index) => (super.noSuchMethod(
+        Invocation.method(
+          #getAt,
+          [index],
+        ),
+        returnValue: _i4.Future<_i8.HiveRadioStation?>.value(),
+        returnValueForMissingStub: _i4.Future<_i8.HiveRadioStation?>.value(),
+      ) as _i4.Future<_i8.HiveRadioStation?>);
+
+  @override
+  _i4.Stream<_i2.BoxEvent> watch({dynamic key}) => (super.noSuchMethod(
+        Invocation.method(
+          #watch,
+          [],
+          {#key: key},
+        ),
+        returnValue: _i4.Stream<_i2.BoxEvent>.empty(),
+        returnValueForMissingStub: _i4.Stream<_i2.BoxEvent>.empty(),
+      ) as _i4.Stream<_i2.BoxEvent>);
+
+  @override
+  _i4.Future<bool> containsKey(dynamic key) => (super.noSuchMethod(
+        Invocation.method(
+          #containsKey,
+          [key],
+        ),
+        returnValue: _i4.Future<bool>.value(false),
+        returnValueForMissingStub: _i4.Future<bool>.value(false),
+      ) as _i4.Future<bool>);
+
+  @override
+  _i4.Future<void> put(
+    dynamic key,
+    _i8.HiveRadioStation? value,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #put,
+          [
+            key,
+            value,
+          ],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> putAt(
+    int? index,
+    _i8.HiveRadioStation? value,
+  ) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #putAt,
+          [
+            index,
+            value,
+          ],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> putAll(Map<dynamic, _i8.HiveRadioStation>? entries) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #putAll,
+          [entries],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<int> add(_i8.HiveRadioStation? value) => (super.noSuchMethod(
+        Invocation.method(
+          #add,
+          [value],
+        ),
+        returnValue: _i4.Future<int>.value(0),
+        returnValueForMissingStub: _i4.Future<int>.value(0),
+      ) as _i4.Future<int>);
+
+  @override
+  _i4.Future<Iterable<int>> addAll(Iterable<_i8.HiveRadioStation>? values) =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #addAll,
+          [values],
+        ),
+        returnValue: _i4.Future<Iterable<int>>.value(<int>[]),
+        returnValueForMissingStub: _i4.Future<Iterable<int>>.value(<int>[]),
+      ) as _i4.Future<Iterable<int>>);
+
+  @override
+  _i4.Future<void> delete(dynamic key) => (super.noSuchMethod(
+        Invocation.method(
+          #delete,
+          [key],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> deleteAt(int? index) => (super.noSuchMethod(
+        Invocation.method(
+          #deleteAt,
+          [index],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> deleteAll(Iterable<dynamic>? keys) => (super.noSuchMethod(
+        Invocation.method(
+          #deleteAll,
+          [keys],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> compact() => (super.noSuchMethod(
+        Invocation.method(
+          #compact,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<int> clear() => (super.noSuchMethod(
+        Invocation.method(
+          #clear,
+          [],
+        ),
+        returnValue: _i4.Future<int>.value(0),
+        returnValueForMissingStub: _i4.Future<int>.value(0),
+      ) as _i4.Future<int>);
+
+  @override
+  _i4.Future<void> deleteFromDisk() => (super.noSuchMethod(
+        Invocation.method(
+          #deleteFromDisk,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<void> flush() => (super.noSuchMethod(
+        Invocation.method(
+          #flush,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
+
+  @override
+  _i4.Future<Map<dynamic, _i8.HiveRadioStation>?> toMap() =>
+      (super.noSuchMethod(
+        Invocation.method(
+          #toMap,
+          [],
+        ),
+        returnValue: _i4.Future<Map<dynamic, _i8.HiveRadioStation>?>.value(),
+        returnValueForMissingStub:
+            _i4.Future<Map<dynamic, _i8.HiveRadioStation>?>.value(),
+      ) as _i4.Future<Map<dynamic, _i8.HiveRadioStation>?>);
+
+  @override
+  _i4.Future<void> close() => (super.noSuchMethod(
+        Invocation.method(
+          #close,
+          [],
+        ),
+        returnValue: _i4.Future<void>.value(),
+        returnValueForMissingStub: _i4.Future<void>.value(),
+      ) as _i4.Future<void>);
 }

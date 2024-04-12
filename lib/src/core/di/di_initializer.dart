@@ -12,4 +12,8 @@ void appDIInitializer() => getIt
     'https://at1.api.radio-browser.info',
     instanceName: ApiDiParameterName.baseUrlV1,
   )
+  ..registerSingleton(
+    'RadioFavorites',
+    instanceName: ApiDiParameterName.favoritesHiveId,
+  )
   ..init();

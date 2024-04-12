@@ -18,18 +18,16 @@ import 'utils/mocks.dart';
 import 'utils/mocks.mocks.dart';
 
 void main() {
-  const baseUrl = 'https://at1.api.radio-browser.info';
-  const searchPath = '/json/stations/search';
-
+  const subDir = 'browser';
   final dio = Dio(BaseOptions(baseUrl: baseUrl));
   late final DioAdapter dioAdapter;
   dioAdapter = DioAdapter(dio: dio);
 
   final mockedNavigator = MockRadioBrowserNavigator();
 
-  setUpAll(() async {
-    appDIInitializer();
-  });
+  setUpAll(() async => initTests(subDir));
+
+  tearDownAll(() => deleteHiveTestingDirectory(subDir));
 
   setUp(() {
     dio.httpClientAdapter = dioAdapter;
@@ -80,5 +78,24 @@ void main() {
     await tester.tap(station);
 
     verify(mockedNavigator.openRadioStation(mockStation));
+  });
+
+  testWidgets('Radio favorites screen is opened', (WidgetTester tester) async {
+    await mockNetworkImages(
+      () async {
+        await tester.pumpWidget(
+          const DummyApp(
+            child: RadioBrowserPage(),
+          ),
+        );
+        await tester.pumpAndSettle();
+      },
+    );
+
+    final favIcon = find.byIcon(Icons.favorite);
+    expect(favIcon, findsOne);
+    await tester.tap(favIcon);
+
+    verify(mockedNavigator.openFavorites());
   });
 }

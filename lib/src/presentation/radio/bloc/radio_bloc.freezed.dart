@@ -23,6 +23,7 @@ mixin _$RadioEvent {
     required TResult Function() play,
     required TResult Function() pause,
     required TResult Function() stop,
+    required TResult Function() toggleFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -32,6 +33,7 @@ mixin _$RadioEvent {
     TResult? Function()? play,
     TResult? Function()? pause,
     TResult? Function()? stop,
+    TResult? Function()? toggleFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -41,6 +43,7 @@ mixin _$RadioEvent {
     TResult Function()? play,
     TResult Function()? pause,
     TResult Function()? stop,
+    TResult Function()? toggleFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -51,6 +54,8 @@ mixin _$RadioEvent {
     required TResult Function(_PlayChannelRadioEvent value) play,
     required TResult Function(_PauseChannelRadioEvent value) pause,
     required TResult Function(_StopChannelRadioEvent value) stop,
+    required TResult Function(_ToggleFavoriteChannelRadioEvent value)
+        toggleFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -60,6 +65,7 @@ mixin _$RadioEvent {
     TResult? Function(_PlayChannelRadioEvent value)? play,
     TResult? Function(_PauseChannelRadioEvent value)? pause,
     TResult? Function(_StopChannelRadioEvent value)? stop,
+    TResult? Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
@@ -69,6 +75,7 @@ mixin _$RadioEvent {
     TResult Function(_PlayChannelRadioEvent value)? play,
     TResult Function(_PauseChannelRadioEvent value)? pause,
     TResult Function(_StopChannelRadioEvent value)? stop,
+    TResult Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -143,6 +150,7 @@ class _$LoadRadioEventImpl
     required TResult Function() play,
     required TResult Function() pause,
     required TResult Function() stop,
+    required TResult Function() toggleFavorite,
   }) {
     return load();
   }
@@ -155,6 +163,7 @@ class _$LoadRadioEventImpl
     TResult? Function()? play,
     TResult? Function()? pause,
     TResult? Function()? stop,
+    TResult? Function()? toggleFavorite,
   }) {
     return load?.call();
   }
@@ -167,6 +176,7 @@ class _$LoadRadioEventImpl
     TResult Function()? play,
     TResult Function()? pause,
     TResult Function()? stop,
+    TResult Function()? toggleFavorite,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -183,6 +193,8 @@ class _$LoadRadioEventImpl
     required TResult Function(_PlayChannelRadioEvent value) play,
     required TResult Function(_PauseChannelRadioEvent value) pause,
     required TResult Function(_StopChannelRadioEvent value) stop,
+    required TResult Function(_ToggleFavoriteChannelRadioEvent value)
+        toggleFavorite,
   }) {
     return load(this);
   }
@@ -195,6 +207,7 @@ class _$LoadRadioEventImpl
     TResult? Function(_PlayChannelRadioEvent value)? play,
     TResult? Function(_PauseChannelRadioEvent value)? pause,
     TResult? Function(_StopChannelRadioEvent value)? stop,
+    TResult? Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
   }) {
     return load?.call(this);
   }
@@ -207,6 +220,7 @@ class _$LoadRadioEventImpl
     TResult Function(_PlayChannelRadioEvent value)? play,
     TResult Function(_PauseChannelRadioEvent value)? pause,
     TResult Function(_StopChannelRadioEvent value)? stop,
+    TResult Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
     required TResult orElse(),
   }) {
     if (load != null) {
@@ -301,6 +315,7 @@ class _$SetChannelRadioEventImpl
     required TResult Function() play,
     required TResult Function() pause,
     required TResult Function() stop,
+    required TResult Function() toggleFavorite,
   }) {
     return setChannel(url);
   }
@@ -313,6 +328,7 @@ class _$SetChannelRadioEventImpl
     TResult? Function()? play,
     TResult? Function()? pause,
     TResult? Function()? stop,
+    TResult? Function()? toggleFavorite,
   }) {
     return setChannel?.call(url);
   }
@@ -325,6 +341,7 @@ class _$SetChannelRadioEventImpl
     TResult Function()? play,
     TResult Function()? pause,
     TResult Function()? stop,
+    TResult Function()? toggleFavorite,
     required TResult orElse(),
   }) {
     if (setChannel != null) {
@@ -341,6 +358,8 @@ class _$SetChannelRadioEventImpl
     required TResult Function(_PlayChannelRadioEvent value) play,
     required TResult Function(_PauseChannelRadioEvent value) pause,
     required TResult Function(_StopChannelRadioEvent value) stop,
+    required TResult Function(_ToggleFavoriteChannelRadioEvent value)
+        toggleFavorite,
   }) {
     return setChannel(this);
   }
@@ -353,6 +372,7 @@ class _$SetChannelRadioEventImpl
     TResult? Function(_PlayChannelRadioEvent value)? play,
     TResult? Function(_PauseChannelRadioEvent value)? pause,
     TResult? Function(_StopChannelRadioEvent value)? stop,
+    TResult? Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
   }) {
     return setChannel?.call(this);
   }
@@ -365,6 +385,7 @@ class _$SetChannelRadioEventImpl
     TResult Function(_PlayChannelRadioEvent value)? play,
     TResult Function(_PauseChannelRadioEvent value)? pause,
     TResult Function(_StopChannelRadioEvent value)? stop,
+    TResult Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
     required TResult orElse(),
   }) {
     if (setChannel != null) {
@@ -437,6 +458,7 @@ class _$PlayChannelRadioEventImpl
     required TResult Function() play,
     required TResult Function() pause,
     required TResult Function() stop,
+    required TResult Function() toggleFavorite,
   }) {
     return play();
   }
@@ -449,6 +471,7 @@ class _$PlayChannelRadioEventImpl
     TResult? Function()? play,
     TResult? Function()? pause,
     TResult? Function()? stop,
+    TResult? Function()? toggleFavorite,
   }) {
     return play?.call();
   }
@@ -461,6 +484,7 @@ class _$PlayChannelRadioEventImpl
     TResult Function()? play,
     TResult Function()? pause,
     TResult Function()? stop,
+    TResult Function()? toggleFavorite,
     required TResult orElse(),
   }) {
     if (play != null) {
@@ -477,6 +501,8 @@ class _$PlayChannelRadioEventImpl
     required TResult Function(_PlayChannelRadioEvent value) play,
     required TResult Function(_PauseChannelRadioEvent value) pause,
     required TResult Function(_StopChannelRadioEvent value) stop,
+    required TResult Function(_ToggleFavoriteChannelRadioEvent value)
+        toggleFavorite,
   }) {
     return play(this);
   }
@@ -489,6 +515,7 @@ class _$PlayChannelRadioEventImpl
     TResult? Function(_PlayChannelRadioEvent value)? play,
     TResult? Function(_PauseChannelRadioEvent value)? pause,
     TResult? Function(_StopChannelRadioEvent value)? stop,
+    TResult? Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
   }) {
     return play?.call(this);
   }
@@ -501,6 +528,7 @@ class _$PlayChannelRadioEventImpl
     TResult Function(_PlayChannelRadioEvent value)? play,
     TResult Function(_PauseChannelRadioEvent value)? pause,
     TResult Function(_StopChannelRadioEvent value)? stop,
+    TResult Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
     required TResult orElse(),
   }) {
     if (play != null) {
@@ -568,6 +596,7 @@ class _$PauseChannelRadioEventImpl
     required TResult Function() play,
     required TResult Function() pause,
     required TResult Function() stop,
+    required TResult Function() toggleFavorite,
   }) {
     return pause();
   }
@@ -580,6 +609,7 @@ class _$PauseChannelRadioEventImpl
     TResult? Function()? play,
     TResult? Function()? pause,
     TResult? Function()? stop,
+    TResult? Function()? toggleFavorite,
   }) {
     return pause?.call();
   }
@@ -592,6 +622,7 @@ class _$PauseChannelRadioEventImpl
     TResult Function()? play,
     TResult Function()? pause,
     TResult Function()? stop,
+    TResult Function()? toggleFavorite,
     required TResult orElse(),
   }) {
     if (pause != null) {
@@ -608,6 +639,8 @@ class _$PauseChannelRadioEventImpl
     required TResult Function(_PlayChannelRadioEvent value) play,
     required TResult Function(_PauseChannelRadioEvent value) pause,
     required TResult Function(_StopChannelRadioEvent value) stop,
+    required TResult Function(_ToggleFavoriteChannelRadioEvent value)
+        toggleFavorite,
   }) {
     return pause(this);
   }
@@ -620,6 +653,7 @@ class _$PauseChannelRadioEventImpl
     TResult? Function(_PlayChannelRadioEvent value)? play,
     TResult? Function(_PauseChannelRadioEvent value)? pause,
     TResult? Function(_StopChannelRadioEvent value)? stop,
+    TResult? Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
   }) {
     return pause?.call(this);
   }
@@ -632,6 +666,7 @@ class _$PauseChannelRadioEventImpl
     TResult Function(_PlayChannelRadioEvent value)? play,
     TResult Function(_PauseChannelRadioEvent value)? pause,
     TResult Function(_StopChannelRadioEvent value)? stop,
+    TResult Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
     required TResult orElse(),
   }) {
     if (pause != null) {
@@ -698,6 +733,7 @@ class _$StopChannelRadioEventImpl
     required TResult Function() play,
     required TResult Function() pause,
     required TResult Function() stop,
+    required TResult Function() toggleFavorite,
   }) {
     return stop();
   }
@@ -710,6 +746,7 @@ class _$StopChannelRadioEventImpl
     TResult? Function()? play,
     TResult? Function()? pause,
     TResult? Function()? stop,
+    TResult? Function()? toggleFavorite,
   }) {
     return stop?.call();
   }
@@ -722,6 +759,7 @@ class _$StopChannelRadioEventImpl
     TResult Function()? play,
     TResult Function()? pause,
     TResult Function()? stop,
+    TResult Function()? toggleFavorite,
     required TResult orElse(),
   }) {
     if (stop != null) {
@@ -738,6 +776,8 @@ class _$StopChannelRadioEventImpl
     required TResult Function(_PlayChannelRadioEvent value) play,
     required TResult Function(_PauseChannelRadioEvent value) pause,
     required TResult Function(_StopChannelRadioEvent value) stop,
+    required TResult Function(_ToggleFavoriteChannelRadioEvent value)
+        toggleFavorite,
   }) {
     return stop(this);
   }
@@ -750,6 +790,7 @@ class _$StopChannelRadioEventImpl
     TResult? Function(_PlayChannelRadioEvent value)? play,
     TResult? Function(_PauseChannelRadioEvent value)? pause,
     TResult? Function(_StopChannelRadioEvent value)? stop,
+    TResult? Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
   }) {
     return stop?.call(this);
   }
@@ -762,6 +803,7 @@ class _$StopChannelRadioEventImpl
     TResult Function(_PlayChannelRadioEvent value)? play,
     TResult Function(_PauseChannelRadioEvent value)? pause,
     TResult Function(_StopChannelRadioEvent value)? stop,
+    TResult Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
     required TResult orElse(),
   }) {
     if (stop != null) {
@@ -776,10 +818,151 @@ abstract class _StopChannelRadioEvent implements RadioEvent {
 }
 
 /// @nodoc
+abstract class _$$ToggleFavoriteChannelRadioEventImplCopyWith<$Res> {
+  factory _$$ToggleFavoriteChannelRadioEventImplCopyWith(
+          _$ToggleFavoriteChannelRadioEventImpl value,
+          $Res Function(_$ToggleFavoriteChannelRadioEventImpl) then) =
+      __$$ToggleFavoriteChannelRadioEventImplCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$$ToggleFavoriteChannelRadioEventImplCopyWithImpl<$Res>
+    extends _$RadioEventCopyWithImpl<$Res,
+        _$ToggleFavoriteChannelRadioEventImpl>
+    implements _$$ToggleFavoriteChannelRadioEventImplCopyWith<$Res> {
+  __$$ToggleFavoriteChannelRadioEventImplCopyWithImpl(
+      _$ToggleFavoriteChannelRadioEventImpl _value,
+      $Res Function(_$ToggleFavoriteChannelRadioEventImpl) _then)
+      : super(_value, _then);
+}
+
+/// @nodoc
+
+class _$ToggleFavoriteChannelRadioEventImpl
+    with DiagnosticableTreeMixin
+    implements _ToggleFavoriteChannelRadioEvent {
+  const _$ToggleFavoriteChannelRadioEventImpl();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'RadioEvent.toggleFavorite()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties.add(DiagnosticsProperty('type', 'RadioEvent.toggleFavorite'));
+  }
+
+  @override
+  bool operator ==(Object other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _$ToggleFavoriteChannelRadioEventImpl);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() load,
+    required TResult Function(String url) setChannel,
+    required TResult Function() play,
+    required TResult Function() pause,
+    required TResult Function() stop,
+    required TResult Function() toggleFavorite,
+  }) {
+    return toggleFavorite();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult? Function()? load,
+    TResult? Function(String url)? setChannel,
+    TResult? Function()? play,
+    TResult? Function()? pause,
+    TResult? Function()? stop,
+    TResult? Function()? toggleFavorite,
+  }) {
+    return toggleFavorite?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? load,
+    TResult Function(String url)? setChannel,
+    TResult Function()? play,
+    TResult Function()? pause,
+    TResult Function()? stop,
+    TResult Function()? toggleFavorite,
+    required TResult orElse(),
+  }) {
+    if (toggleFavorite != null) {
+      return toggleFavorite();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_LoadRadioEvent value) load,
+    required TResult Function(_SetChannelRadioEvent value) setChannel,
+    required TResult Function(_PlayChannelRadioEvent value) play,
+    required TResult Function(_PauseChannelRadioEvent value) pause,
+    required TResult Function(_StopChannelRadioEvent value) stop,
+    required TResult Function(_ToggleFavoriteChannelRadioEvent value)
+        toggleFavorite,
+  }) {
+    return toggleFavorite(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult? Function(_LoadRadioEvent value)? load,
+    TResult? Function(_SetChannelRadioEvent value)? setChannel,
+    TResult? Function(_PlayChannelRadioEvent value)? play,
+    TResult? Function(_PauseChannelRadioEvent value)? pause,
+    TResult? Function(_StopChannelRadioEvent value)? stop,
+    TResult? Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
+  }) {
+    return toggleFavorite?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_LoadRadioEvent value)? load,
+    TResult Function(_SetChannelRadioEvent value)? setChannel,
+    TResult Function(_PlayChannelRadioEvent value)? play,
+    TResult Function(_PauseChannelRadioEvent value)? pause,
+    TResult Function(_StopChannelRadioEvent value)? stop,
+    TResult Function(_ToggleFavoriteChannelRadioEvent value)? toggleFavorite,
+    required TResult orElse(),
+  }) {
+    if (toggleFavorite != null) {
+      return toggleFavorite(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _ToggleFavoriteChannelRadioEvent implements RadioEvent {
+  const factory _ToggleFavoriteChannelRadioEvent() =
+      _$ToggleFavoriteChannelRadioEventImpl;
+}
+
+/// @nodoc
 mixin _$RadioState {
   String? get stationUrl => throw _privateConstructorUsedError;
   bool get isPlaying => throw _privateConstructorUsedError;
   List<String> get metadata => throw _privateConstructorUsedError;
+  bool get isFavorite => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $RadioStateCopyWith<RadioState> get copyWith =>
@@ -792,7 +975,11 @@ abstract class $RadioStateCopyWith<$Res> {
           RadioState value, $Res Function(RadioState) then) =
       _$RadioStateCopyWithImpl<$Res, RadioState>;
   @useResult
-  $Res call({String? stationUrl, bool isPlaying, List<String> metadata});
+  $Res call(
+      {String? stationUrl,
+      bool isPlaying,
+      List<String> metadata,
+      bool isFavorite});
 }
 
 /// @nodoc
@@ -811,6 +998,7 @@ class _$RadioStateCopyWithImpl<$Res, $Val extends RadioState>
     Object? stationUrl = freezed,
     Object? isPlaying = null,
     Object? metadata = null,
+    Object? isFavorite = null,
   }) {
     return _then(_value.copyWith(
       stationUrl: freezed == stationUrl
@@ -825,6 +1013,10 @@ class _$RadioStateCopyWithImpl<$Res, $Val extends RadioState>
           ? _value.metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ) as $Val);
   }
 }
@@ -837,7 +1029,11 @@ abstract class _$$RadioStateImplCopyWith<$Res>
       __$$RadioStateImplCopyWithImpl<$Res>;
   @override
   @useResult
-  $Res call({String? stationUrl, bool isPlaying, List<String> metadata});
+  $Res call(
+      {String? stationUrl,
+      bool isPlaying,
+      List<String> metadata,
+      bool isFavorite});
 }
 
 /// @nodoc
@@ -854,6 +1050,7 @@ class __$$RadioStateImplCopyWithImpl<$Res>
     Object? stationUrl = freezed,
     Object? isPlaying = null,
     Object? metadata = null,
+    Object? isFavorite = null,
   }) {
     return _then(_$RadioStateImpl(
       stationUrl: freezed == stationUrl
@@ -868,6 +1065,10 @@ class __$$RadioStateImplCopyWithImpl<$Res>
           ? _value._metadata
           : metadata // ignore: cast_nullable_to_non_nullable
               as List<String>,
+      isFavorite: null == isFavorite
+          ? _value.isFavorite
+          : isFavorite // ignore: cast_nullable_to_non_nullable
+              as bool,
     ));
   }
 }
@@ -878,7 +1079,8 @@ class _$RadioStateImpl with DiagnosticableTreeMixin implements _RadioState {
   const _$RadioStateImpl(
       {this.stationUrl,
       this.isPlaying = false,
-      final List<String> metadata = const []})
+      final List<String> metadata = const [],
+      this.isFavorite = false})
       : _metadata = metadata;
 
   @override
@@ -896,8 +1098,12 @@ class _$RadioStateImpl with DiagnosticableTreeMixin implements _RadioState {
   }
 
   @override
+  @JsonKey()
+  final bool isFavorite;
+
+  @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'RadioState(stationUrl: $stationUrl, isPlaying: $isPlaying, metadata: $metadata)';
+    return 'RadioState(stationUrl: $stationUrl, isPlaying: $isPlaying, metadata: $metadata, isFavorite: $isFavorite)';
   }
 
   @override
@@ -907,7 +1113,8 @@ class _$RadioStateImpl with DiagnosticableTreeMixin implements _RadioState {
       ..add(DiagnosticsProperty('type', 'RadioState'))
       ..add(DiagnosticsProperty('stationUrl', stationUrl))
       ..add(DiagnosticsProperty('isPlaying', isPlaying))
-      ..add(DiagnosticsProperty('metadata', metadata));
+      ..add(DiagnosticsProperty('metadata', metadata))
+      ..add(DiagnosticsProperty('isFavorite', isFavorite));
   }
 
   @override
@@ -919,12 +1126,14 @@ class _$RadioStateImpl with DiagnosticableTreeMixin implements _RadioState {
                 other.stationUrl == stationUrl) &&
             (identical(other.isPlaying, isPlaying) ||
                 other.isPlaying == isPlaying) &&
-            const DeepCollectionEquality().equals(other._metadata, _metadata));
+            const DeepCollectionEquality().equals(other._metadata, _metadata) &&
+            (identical(other.isFavorite, isFavorite) ||
+                other.isFavorite == isFavorite));
   }
 
   @override
   int get hashCode => Object.hash(runtimeType, stationUrl, isPlaying,
-      const DeepCollectionEquality().hash(_metadata));
+      const DeepCollectionEquality().hash(_metadata), isFavorite);
 
   @JsonKey(ignore: true)
   @override
@@ -937,7 +1146,8 @@ abstract class _RadioState implements RadioState {
   const factory _RadioState(
       {final String? stationUrl,
       final bool isPlaying,
-      final List<String> metadata}) = _$RadioStateImpl;
+      final List<String> metadata,
+      final bool isFavorite}) = _$RadioStateImpl;
 
   @override
   String? get stationUrl;
@@ -945,6 +1155,8 @@ abstract class _RadioState implements RadioState {
   bool get isPlaying;
   @override
   List<String> get metadata;
+  @override
+  bool get isFavorite;
   @override
   @JsonKey(ignore: true)
   _$$RadioStateImplCopyWith<_$RadioStateImpl> get copyWith =>
