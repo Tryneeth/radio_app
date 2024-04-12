@@ -1,16 +1,28 @@
-# radio_app
+# Radio App
 
-A new Flutter project.
+A Radio App for Radio Fans
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+*To build this project in an iOS Simulator you must run these commands:*
 
-A few resources to get you started if this is your first Flutter project:
+``` bash
+dart pub get
+dart run -t lib/main.dart
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+*To rebuild the generated files run this command:*
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+``` bash
+dart pub run build_runner build --delete-conflicting-outputs
+```
+
+*To run the tests do it with this command:*
+
+``` bash
+flutter test --coverage
+```
+
+### Notes
+
+This app uses [Social Testing](https://martinfowler.com/bliki/UnitTest.html) as the testing approach.
