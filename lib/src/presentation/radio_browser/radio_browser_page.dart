@@ -2,6 +2,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:radio_app/src/core/di/di_initializer.dart';
+import 'package:radio_app/src/core/ui/atoms/dimensions.dart';
 import 'package:radio_app/src/core/ui/pages/error_view.dart';
 import 'package:radio_app/src/core/ui/pages/loading_view.dart';
 import 'package:radio_app/src/domain/models/radio_station.dart';
@@ -46,6 +47,9 @@ class RadioBrowserPage extends StatelessWidget {
   void _showCountryPicker(BuildContext context) => showCountryPicker(
         context: context,
         favorite: ['US', 'ES'],
+        countryListTheme: CountryListThemeData(
+          padding: dimen.all.xs - dimen.bottom.xs,
+        ),
         onSelect: (Country country) => context
             .read<RadioBrowserBloc>()
             .add(RadioBrowserEvent.changeCountry(country.countryCode)),
