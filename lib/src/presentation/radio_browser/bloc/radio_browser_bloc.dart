@@ -23,6 +23,7 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
         loadMore: (_) => _onLoadMore(emit),
         openStation: (e) => _onOpenStation(emit, e),
         changeCountry: (e) => _onChangeCountry(emit, e),
+        openFavorites: (e) => _onOpenFavorites(emit, e),
       ),
     );
 
@@ -125,4 +126,10 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
       ),
     );
   }
+
+  void _onOpenFavorites(
+    Emitter<RadioBrowserState> emit,
+    _OpenFavoritesRadioBrowserEvent e,
+  ) =>
+      _navigator.openFavorites();
 }

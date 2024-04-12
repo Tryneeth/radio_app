@@ -12,5 +12,9 @@ class ClientRadioBrowserNavigator implements RadioBrowserNavigator {
   final ClientRouter _router;
 
   @override
-  FutureOr<void> openRadioStation(RadioStation station) => _router.push(RadioRoute(station: station));
+  FutureOr<void> openRadioStation(RadioStation station) =>
+      _router.push(RadioRoute(station: station));
+
+  @override
+  FutureOr<void> openFavorites() => _router.push(const FavoritesRoute());
 }

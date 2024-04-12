@@ -15,6 +15,12 @@ abstract class _$ClientRouter extends RootStackRouter {
 
   @override
   final Map<String, PageFactory> pagesMap = {
+    FavoritesRoute.name: (routeData) {
+      return AutoRoutePage<void>(
+        routeData: routeData,
+        child: const FavoritesScreen(),
+      );
+    },
     RadioBrowserRoute.name: (routeData) {
       return AutoRoutePage<void>(
         routeData: routeData,
@@ -32,6 +38,20 @@ abstract class _$ClientRouter extends RootStackRouter {
       );
     },
   };
+}
+
+/// generated route for
+/// [FavoritesScreen]
+class FavoritesRoute extends PageRouteInfo<void> {
+  const FavoritesRoute({List<PageRouteInfo>? children})
+      : super(
+          FavoritesRoute.name,
+          initialChildren: children,
+        );
+
+  static const String name = 'FavoritesRoute';
+
+  static const PageInfo<void> page = PageInfo<void>(name);
 }
 
 /// generated route for

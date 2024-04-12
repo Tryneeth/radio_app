@@ -8,4 +8,6 @@ class RadioBrowserEvent with _$RadioBrowserEvent {
       _OpenStationRadioBrowserEvent;
   const factory RadioBrowserEvent.changeCountry(String countryCode) =
       _ChangeCountryRadioBrowserEvent;
+  const factory RadioBrowserEvent.openFavorites() =
+      _OpenFavoritesRadioBrowserEvent;
 }
