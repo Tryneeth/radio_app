@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -26,14 +27,18 @@ class RadioBloc extends Bloc<RadioEvent, RadioState> {
   )   : _station = station,
         super(const RadioState()) {
     on<RadioEvent>(
-      (event, emit) => event.map(
+      (event, emit) => event.mapOrNull(
         load: (_) => _onLoad(emit),
-        setChannel: (e) => _onSetChannel(e, emit),
         play: (_) => _onPlay(emit),
         pause: (_) => _onPause(emit),
         stop: (_) => _onStop(emit),
         toggleFavorite: (_) => _onToggleFavorite(emit),
       ),
+      transformer: sequential(),
+    );
+    on<_SetChannelRadioEvent>(
+      _onSetChannel,
+      transformer: sequential(),
     );
 
     add(const RadioEvent.load());

@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:bloc_concurrency/bloc_concurrency.dart';
 import 'package:country_picker/country_picker.dart';
 import 'package:flutter/foundation.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
@@ -6,10 +7,13 @@ import 'package:injectable/injectable.dart';
 import 'package:radio_app/src/domain/models/radio_station.dart';
 import 'package:radio_app/src/domain/usecases/get_radio_stations_by_country_code.dart';
 import 'package:radio_app/src/presentation/navigators/radio_browser_navigator.dart';
+import 'package:rxdart/rxdart.dart';
 
 part 'radio_browser_event.dart';
 part 'radio_browser_state.dart';
 part 'radio_browser_bloc.freezed.dart';
+
+const _throttleDuration = Duration(milliseconds: 100);
 
 @injectable
 class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
@@ -18,16 +22,25 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
     this._navigator,
   ) : super(const RadioBrowserState.initial()) {
     on<RadioBrowserEvent>(
-      (event, emit) => event.map(
+      (event, emit) => event.mapOrNull(
         load: (_) => _onLoad(emit),
-        loadMore: (_) => _onLoadMore(emit),
         openStation: (e) => _onOpenStation(emit, e),
         changeCountry: (e) => _onChangeCountry(emit, e),
         openFavorites: (e) => _onOpenFavorites(emit, e),
       ),
     );
+    on<_LoadMoreRadioBrowserEvent>(
+      (event, emit) => _onLoadMore(emit),
+      transformer: debounceSequential(_throttleDuration),
+    );
 
     add(const RadioBrowserEvent.load());
+  }
+
+  EventTransformer<E> debounceSequential<E>(Duration duration) {
+    return (events, mapper) {
+      return sequential<E>().call(events.debounceTime(duration), mapper);
+    };
   }
 
   final GetRadioStationsByCountryCode _getRadioStationsByCountryCode;
@@ -62,9 +75,7 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
   Future<void> _onLoadMore(Emitter<RadioBrowserState> emit) async {
     final currentState = state.mapOrNull(content: (value) => value);
 
-    if (currentState == null ||
-        currentState.isEndOfData ||
-        currentState.isLoadingMore) {
+    if (currentState == null || currentState.isEndOfData) {
       return;
     }
 
