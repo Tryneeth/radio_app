@@ -7,13 +7,10 @@ import 'package:injectable/injectable.dart';
 import 'package:radio_app/src/domain/models/radio_station.dart';
 import 'package:radio_app/src/domain/usecases/get_radio_stations_by_country_code.dart';
 import 'package:radio_app/src/presentation/navigators/radio_browser_navigator.dart';
-import 'package:rxdart/rxdart.dart';
 
 part 'radio_browser_event.dart';
 part 'radio_browser_state.dart';
 part 'radio_browser_bloc.freezed.dart';
-
-const _throttleDuration = Duration(milliseconds: 100);
 
 @injectable
 class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
@@ -31,16 +28,10 @@ class RadioBrowserBloc extends Bloc<RadioBrowserEvent, RadioBrowserState> {
     );
     on<_LoadMoreRadioBrowserEvent>(
       (event, emit) => _onLoadMore(emit),
-      transformer: debounceSequential(_throttleDuration),
+      transformer: droppable(),
     );
 
     add(const RadioBrowserEvent.load());
-  }
-
-  EventTransformer<E> debounceSequential<E>(Duration duration) {
-    return (events, mapper) {
-      return sequential<E>().call(events.debounceTime(duration), mapper);
-    };
   }
 
   final GetRadioStationsByCountryCode _getRadioStationsByCountryCode;
